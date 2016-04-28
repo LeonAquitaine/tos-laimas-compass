@@ -1,0 +1,49 @@
+{
+  "name": "tos-laimas-compass",
+  "version": "0.0.1",
+  "description": "A companion tool for the completionist Revelator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lbotinelly/tos-laimas-compass.git"
+  },
+  "keywords": [
+    "Tree of Savior",
+    "TOS",
+    "add-on"
+  ],
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "clean:win": "rimraf dist/win",
+    "start": "electron main.js",
+    "pack": "npm run && build",
+    "dist": "npm run && build",
+    "release": "npm run && build",
+    "dist:win64": "./node_modules/.bin/build --platform win32 --arch x64"
+  },
+  "author": "Leo Botinelly <lbotinelly@outlook.com>",
+  "devDependencies": {
+    "electron-builder": "^3.11.0",
+    "grunt": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "jshint": "^2.9.2",
+    "rimraf": "^2.5.2"
+  },
+  "build": {
+    "iconUrl": "(windows only)",
+    "productName": "Laima's Compass"
+  },
+  "dependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "chokidar": "^1.4.3",
+    "csvtojson": "^0.5.3",
+    "electron-prebuilt": "^0.37.7",
+    "express": "^4.13.4",
+    "jquery": "^2.2.3",
+    "regedit": "^2.2.6",
+    "socket.io": "^1.4.5"
+  }
+}
