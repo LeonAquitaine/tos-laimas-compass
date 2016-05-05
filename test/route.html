@@ -26,7 +26,7 @@
     </select>
     <br>
 
-    <label for="destiny">Destiny:</label>
+    <label for="destiny">Destination:</label>
     <br>
     <select name="destiny" id="destiny" ng-model="destiny">
           <option ng-repeat="i in preMapData | orderBy:'QuestLevel'" value="{{i.ClassName}}">{{i.QuestLevel}} - {{mapNames[i.ClassID] ? mapNames[i.ClassID] : i.EngName}}</option>
