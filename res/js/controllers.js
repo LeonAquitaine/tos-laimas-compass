@@ -217,69 +217,79 @@ app
 
         $scope.event = {
             "Character": "Sibyl Lunardi",
-            "Map": "f_rokas_30",
+            "Map": "f_pilgrimroad_50",
             "MapData": {
-                "ClassID": 1311,
+                "ClassID": 1551,
                 "UseMapFog": 1,
-                "QuestLevel": 76,
-                "ClassName": "f_rokas_30",
-                "BgmPlayList": "f_rokas_2",
-                "Group": "rokas",
+                "QuestLevel": 127,
+                "ClassName": "f_pilgrimroad_50",
+                "BgmPlayList": "f_pilgrimroad",
+                "Group": "pilgrimroad",
                 "MapType": "Field",
-                "PhysicalLinkZone": "f_rokas_29/f_rokas_31/f_remains_39",
-                "EngName": "f_rokas_30",
-                "BgName": "f_rokas_30"
+                "PhysicalLinkZone": "f_pilgrimroad_47/f_pilgrimroad_49/f_pilgrimroad_51",
+                "EngName": "f_pilgrimroad_50",
+                "BgName": "f_pilgrimroad_50"
             },
             "Data": {
-                "41435": {
-                    "Kills": "93",
-                    "ReqKills": "72",
+                "41450": {
                     "Data": {
-                        "ClassID": 41435,
-                        "Level": 76,
-                        "ClassName": "hogma_sorcerer",
+                        "ClassID": 41450,
+                        "Level": 127,
+                        "ClassName": "kodomor",
                         "Boss_UseZone": "",
-                        "Journal": "hogma_sorcerer",
-                        "SET": "monster_hogma_sorcerer"
-                    }
-                },
-                "47309": {
-                    "Kills": "15",
-                    "ReqKills": "180",
-                    "data": {
-                        "ClassID": 47309,
-                        "Level": 77,
-                        "ClassName": "Hogma_guard",
-                        "Boss_UseZone": "",
-                        "Journal": "Hogma_guard",
-                        "SET": "monster_Hogma_guard"
+                        "Journal": "kodomor",
+                        "SET": "monster_kodomor"
                     },
-                    "Data": {
-                        "ClassID": 47309,
-                        "Level": 77,
-                        "ClassName": "Hogma_guard",
-                        "Boss_UseZone": "",
-                        "Journal": "Hogma_guard",
-                        "SET": "monster_Hogma_guard"
-                    }
+                    "Total": 90,
+                    "Current": 41,
+                    "Completed": false
                 },
-                "57603": {
-                    "Kills": "75",
-                    "ReqKills": "27",
+                "57403": {
                     "Data": {
-                        "ClassID": 57603,
-                        "Level": 77,
-                        "ClassName": "Deadbornscab_bow",
+                        "ClassID": 57403,
+                        "Level": 128,
+                        "ClassName": "Romor",
                         "Boss_UseZone": "",
-                        "Journal": "Deadbornscab_bow",
-                        "SET": "Deadbornscab_bow"
-                    }
+                        "Journal": "Romor",
+                        "SET": "monster_romor"
+                    },
+                    "Total": 112,
+                    "Current": 62,
+                    "Completed": false
+                },
+                "57604": {
+                    "Data": {
+                        "ClassID": 57604,
+                        "Level": 129,
+                        "ClassName": "Siaulav_mage",
+                        "Boss_UseZone": "",
+                        "Journal": "Siaulav_mage",
+                        "SET": "Siaulav_mage"
+                    },
+                    "Total": 67,
+                    "Current": 19,
+                    "Completed": false
+                },
+                "57641": {
+                    "Data": {
+                        "ClassID": 57641,
+                        "Level": 128,
+                        "ClassName": "lapasape_bow",
+                        "Boss_UseZone": "",
+                        "Journal": "lapasape_bow",
+                        "SET": "lapasape_bow"
+                    },
+                    "Total": 67,
+                    "Current": 31,
+                    "Completed": false
                 },
                 "Exploration": {
-                    "Total": "120",
-                    "Current": "120"
+                    "Total": 110,
+                    "Current": 84,
+                    "Completed": false
                 }
-            }
+            },
+            "EventSource": "57641"
         };
 
         var socket = io();

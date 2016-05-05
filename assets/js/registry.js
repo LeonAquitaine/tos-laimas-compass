@@ -36,10 +36,10 @@ function startMonitor() {
                                 Level: dat[3],
                                 Map: dat[4],
                                 Mob: dat[5],
-                                Kills: dat[6],
-                                ReqKills: dat[7],
-                                ExplorationCurrent: dat[5],
-                                ExplorationTotal: dat[6]
+                                Kills: Number(dat[6]),
+                                ReqKills: Number(dat[7]),
+                                ExplorationCurrent: Number(dat[5]),
+                                ExplorationTotal: Number(dat[6])
                             };
 
                             if (global.app.maps.maps[event.Map] !== null)
@@ -73,8 +73,9 @@ function startMonitor() {
                                 if (global.app.maps.mobs[event.Mob]);
                                 global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Data = global.app.maps.mobs[event.Mob];
 
-                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Kills = event.Kills;
-                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].ReqKills = event.ReqKills;
+                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Total = event.ReqKills;
+                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Current = event.Kills;
+                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Completed = event.Kills >= event.ReqKills; 
                             }
 
                             if (event.Type == "MAP") {
@@ -83,13 +84,15 @@ function startMonitor() {
 
                                 global.app.data.tracker[event.Family][event.Character][event.Map].Exploration.Total = event.ExplorationTotal;
                                 global.app.data.tracker[event.Family][event.Character][event.Map].Exploration.Current = event.ExplorationCurrent;
+                                global.app.data.tracker[event.Family][event.Character][event.Map].Exploration.Completed = event.ExplorationCurrent >= event.ExplorationTotal;
                             }
 
                             dataEvent = {
                                 Character: event.Character + ' ' + event.Family,
                                 Map: event.Map,
                                 MapData: event.MapData,
-                                Data: global.app.data.tracker[event.Family][event.Character][event.Map]
+                                Data: global.app.data.tracker[event.Family][event.Character][event.Map],
+                                EventSource: (event.Type === "KILL") ? event.Mob : "Exploration"
                             }
 
                         }

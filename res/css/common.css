@@ -343,7 +343,13 @@ button .fa {margin-right:3px;}
     color:#c0e0ff;
 }
 
-.hilight
+.active
+{
+    color:#FFFFC0;
+    font-weight: bold;
+}
+
+.hilight, .active
 {
    text-shadow: 0px 0px 8px rgba(128, 203, 255, 1);
 }
@@ -404,4 +410,26 @@ button .fa {margin-right:3px;}
 .float-right
 {
     float:right;
+}
+
+.p-rel
+{
+  position:relative;
+}
+
+.p-rel > .float-left
+{
+  position:absolute;
+  left:20 px;
+}
+
+.p-rel > .float-right
+{
+  position:absolute;
+  right:0;
+}
+
+.mini {
+    font-size: 85%;
+    padding: 3px 6px;
 }
