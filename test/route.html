@@ -289,11 +289,11 @@ var Graph=function(t){var r=function(t){var r,n=[];for(r in t)Object.prototype.h
     
     $scope.nodes = nodes;
     
-$scope.$watchGroup(['origin', 'destiny'], function() {
-  
-var graph = new Graph($scope.nodes);
-$scope.route = graph.findShortestPath($scope.origin, $scope.destiny);
-});    
+    $scope.$watchGroup(['origin', 'destiny'], function() {
+      
+    var graph = new Graph($scope.nodes);
+    $scope.route = graph.findShortestPath($scope.origin, $scope.destiny);
+    });    
     
     
     });

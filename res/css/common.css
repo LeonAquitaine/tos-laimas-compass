@@ -363,6 +363,16 @@ button .fa {margin-right:3px;}
   height:16px;
   margin-right:10px;
   }
+
+.checkmark
+{
+  background-image:url("/res/img/check.png");
+  background-size: 100%;
+  display:inline-block;
+  width:16px;
+  height:16px;
+  margin-right:10px;
+  }
   
   *{
       color:#c0c0c0;
@@ -419,17 +429,24 @@ button .fa {margin-right:3px;}
 
 .p-rel > .float-left
 {
+  color: white;
   position:absolute;
-  left:20 px;
+  left:20px;
 }
 
 .p-rel > .float-right
 {
+  color: white;
   position:absolute;
-  right:0;
+  right:20px;
 }
 
 .mini {
-    font-size: 85%;
+    font-size: 80%;
     padding: 3px 6px;
+}
+
+.completed > .progress-bar
+{
+  background-color: #22a060;
 }
