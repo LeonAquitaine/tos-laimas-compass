@@ -371,17 +371,28 @@ button .fa {margin-right:3px;}
   display:inline-block;
   width:16px;
   height:16px;
-  margin-right:10px;
+  margin-right:2px;
   }
   
+.wip
+{
+  background-image:url("/res/img/wip.png");
+  background-size: 100%;
+  display:inline-block;
+  width:16px;
+  height:16px;
+  margin-right:2px;
+  }
+  
+
   *{
       color:#c0c0c0;
   }
 
 .faded
 {
-       opacity: 0.75;
-    filter: alpha(opacity=75); /* For IE8 and earlier */
+       opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
 .m-b-30
@@ -406,6 +417,11 @@ button .fa {margin-right:3px;}
 .p-t-0
 {
     padding-top:0;
+}
+
+.p-0
+{
+    padding:0;
 }
 
 .p-b-0
@@ -446,7 +462,52 @@ button .fa {margin-right:3px;}
     padding: 3px 6px;
 }
 
+.progress-bar{
+  background-color: #ae5a00;
+}
+
 .completed > .progress-bar
 {
   background-color: #22a060;
+}
+
+.a-r
+{
+  text-align: right;
+}
+
+.charSelector
+{
+      font-size: 30px;
+      color: #c0e0ff;
+          text-shadow: 0px 0px 8px rgba(128, 203, 255, 1);
+          background: transparent;
+          width:100%;
+          border-width: 0;
+          margin:10px 0;
+}
+
+.panel{
+  background:transparent;
+}
+
+.panel-default>.panel-heading{
+  color:#eee;
+  background: transparent;
+  border-color:black;
+}
+
+.panel-heading
+{
+  padding:2px 5px;
+}
+
+.panel-group .panel+.panel
+{
+  margin-top: 1px;
+}
+
+.roboto
+{
+  font-family:robotolight;
 }

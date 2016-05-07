@@ -16,6 +16,8 @@
   <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="/res/css/common.css" rel="stylesheet">
 
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/node_modules/angular/angular.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 
@@ -28,29 +30,56 @@
 
   <div ng-controller="MasterController" class="container-fluid">
 
-    <h2 class="sub-header hilight">{{event.Character}}</h2>
+    <select ng-model="selectedCharacter" class='charSelector'>
+      <option ng-repeat='(k,v) in trackedCharacters' value="{{k}}">{{k}}</option>
+    </select>
 
-    <div class="row m-b-5">
-      <h4 class="col-xs-12 hilight"><span class='mapmarker'></span>{{mapNames[event.MapData.ClassID] ? mapNames[event.MapData.ClassID] : event.MapData.EngName }}</h4>
-    </div>
-   <div class="row p-10 p-t-0" ng-repeat='(k,v) in event.Data'>
-      <div class="col-xs-offset-1 col-xs-4" ng-class='{"active": event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
-      <div class="col-xs-5 p-rel" ng-class='{"completed": v.Completed}'>
-
-        <span class='float-left mini'>{{v.Current}}/{{v.Total}}</span>
-        <span class='float-right mini'>{{v.Current / v.Total * 100 | number:2}}%</span>
-        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{ v.Completed ? 100 : (v.Current / v.Total) * 100}}%">
-        
-          &nbsp;
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row m-b-5">
+          <h4 class="col-xs-12 hilight"><span class='faded'>{{event.MapData.QuestLevel}} · </span>{{mapHash[event.MapData.ClassID].Description}}</h4>
         </div>
-        
-        
+        <div class="row p-10 p-0" ng-repeat='(k,v) in event.Data'>
+          <div class="col-xs-1 faded a-r">{{v.Data.Level ? v.Data.Level : ''}}</div>
+          <div class="col-xs-4" ng-class='{"active": event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
+          <div class="col-xs-7 p-rel" ng-class='{"completed": v.Completed}'>
+
+            <span class='float-left mini'>{{v.Current}}/{{v.Total}}</span>
+            <span class='float-right mini'>{{v.Current / v.Total * 100 | number:2}}%</span>
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{ v.Completed ? 100 : (v.Current / v.Total) * 100}}%">
+              &nbsp;
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-xs-2" ng-if='v.Current >= v.Total'><span class="checkmark"></span></div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="float-right"><label class='mini'>Show All</label><input type="checkbox" ng-model="showAll"></div>
+        Travel Log</div>
+      <div class="panel-body">
+
+        <div class='roboto'>
+          <div class="row" ng-repeat="(k,v) in mapOrderedHashList" ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].mobs.length || showAll">
+            <div class='col-xs-2'>{{mapHash[v.ClassID].QuestLevel}}</div>
+            <div class='col-xs-10'>
+              <div class='float-right'>
+                <div ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].Exploration">
+                  <span ng-repeat="m in trackedCharacters[selectedCharacter].map[v.ClassName].mobs" ng-class="{'wip': !trackedCharacters[selectedCharacter].mob[m].Completed, 'checkmark': trackedCharacters[selectedCharacter].mob[m].Completed}"></span>
+                  <span ng-if="!trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="wip"></span>
+                  <span ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="checkmark"></span>
+                </div>
+              </div>
+              {{mapHash[v.ClassID].Description}}</div>
+          </div>
+        </div>
+      </div>
     </div>
 
 
-
+    <pre>{{event | json}}</pre>
+    <pre>{{trackedCharacters[selectedCharacter] | json}}</pre>
   </div>
 </body>
 

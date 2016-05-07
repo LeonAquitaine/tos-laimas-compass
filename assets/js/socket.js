@@ -8,4 +8,14 @@
         {
             socket.emit('data:mobs', global.app.data.mobs);
         }
+
+        if (global.app.data.tracker)
+        {
+            socket.emit('data:tracker', global.app.data.tracker);
+        }
+        
+        if (global.app.data.lastEvent)
+        {
+            socket.emit('data:event', global.app.data.lastEvent);
+        }
     };

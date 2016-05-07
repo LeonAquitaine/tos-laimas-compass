@@ -1,5 +1,6 @@
 app
     .controller('MasterController', function ($scope) {
+
         $scope.mapNames = {
             "1001": "Klaipeda",
             "1006": "Orsha",
@@ -215,82 +216,7 @@ app
             "981": "Fedimian"
         };
 
-        $scope.event = {
-            "Character": "Sibyl Lunardi",
-            "Map": "f_pilgrimroad_50",
-            "MapData": {
-                "ClassID": 1551,
-                "UseMapFog": 1,
-                "QuestLevel": 127,
-                "ClassName": "f_pilgrimroad_50",
-                "BgmPlayList": "f_pilgrimroad",
-                "Group": "pilgrimroad",
-                "MapType": "Field",
-                "PhysicalLinkZone": "f_pilgrimroad_47/f_pilgrimroad_49/f_pilgrimroad_51",
-                "EngName": "f_pilgrimroad_50",
-                "BgName": "f_pilgrimroad_50"
-            },
-            "Data": {
-                "41450": {
-                    "Data": {
-                        "ClassID": 41450,
-                        "Level": 127,
-                        "ClassName": "kodomor",
-                        "Boss_UseZone": "",
-                        "Journal": "kodomor",
-                        "SET": "monster_kodomor"
-                    },
-                    "Total": 90,
-                    "Current": 41,
-                    "Completed": false
-                },
-                "57403": {
-                    "Data": {
-                        "ClassID": 57403,
-                        "Level": 128,
-                        "ClassName": "Romor",
-                        "Boss_UseZone": "",
-                        "Journal": "Romor",
-                        "SET": "monster_romor"
-                    },
-                    "Total": 112,
-                    "Current": 62,
-                    "Completed": false
-                },
-                "57604": {
-                    "Data": {
-                        "ClassID": 57604,
-                        "Level": 129,
-                        "ClassName": "Siaulav_mage",
-                        "Boss_UseZone": "",
-                        "Journal": "Siaulav_mage",
-                        "SET": "Siaulav_mage"
-                    },
-                    "Total": 67,
-                    "Current": 19,
-                    "Completed": false
-                },
-                "57641": {
-                    "Data": {
-                        "ClassID": 57641,
-                        "Level": 128,
-                        "ClassName": "lapasape_bow",
-                        "Boss_UseZone": "",
-                        "Journal": "lapasape_bow",
-                        "SET": "lapasape_bow"
-                    },
-                    "Total": 67,
-                    "Current": 31,
-                    "Completed": false
-                },
-                "Exploration": {
-                    "Total": 110,
-                    "Current": 84,
-                    "Completed": false
-                }
-            },
-            "EventSource": "57641"
-        };
+        $scope.event = {};
 
         var socket = io();
 
@@ -298,6 +224,55 @@ app
             console.log('data:maps');
 
             $scope.maps = data;
+
+            $scope.mapHash = {};
+
+            $scope.mapClassPerName = {};
+            $scope.mapOrderedHashList = {};
+
+            //First, a hash identifying map ClassIDs per name:
+
+            $scope.maps.forEach(function (i) {
+                $scope.mapClassPerName[i.ClassName] = i.ClassID;
+                var v = "00" + i.QuestLevel;
+                var u = "0000" + i.ClassID;
+                var t = "" + v.substr(v.length - 3) + u.substr(u.length - 5);
+                i.mapOrderedHash = Number(t);
+            });
+
+            $scope.maps = $scope.maps.sort(function (a, b) {
+                return a.mapOrderedHash - b.mapOrderedHash;
+            });
+
+            //Then filter out the useless stuff and hash it:
+
+            $scope.maps.forEach(function (i) {
+
+                if (i.UseMapFog == 1)
+                    if (i.PhysicalLinkZone) {
+
+                        $scope.mapOrderedHashList[i.mapOrderedHash] = i;
+
+
+                        $scope.mapHash[i.ClassID] = i;
+
+                        $scope.mapHash[i.ClassID].Description = $scope.mapNames[i.ClassID] ? $scope.mapNames[i.ClassID] : i.EngName;
+
+                        // Translate PhysicalLinkZone names to ClassIDs
+
+                        var ls = [];
+
+                        var links = i.PhysicalLinkZone.split('/');
+
+                        angular.forEach(links, function (ii) {
+                            ls.push($scope.mapClassPerName[ii]);
+                        });
+
+                        $scope.mapHash[i.ClassID].linkedMaps = ls;
+                    }
+
+            });
+
             $scope.$apply();
         });
 
@@ -307,9 +282,47 @@ app
             $scope.$apply();
         });
 
+        socket.on('data:tracker', function (data) {
+            console.log('data:tracker');
+            $scope.tracker = data;
+
+            $scope.trackedCharacters = {};
+
+            for (var k in $scope.tracker)
+                for (var l in $scope.tracker[k]) {
+                    var name = l + ' ' + k;
+                    $scope.trackedCharacters[name] = $scope.tracker[k][l];
+                }
+
+            $scope.$apply();
+        });
+
         socket.on('data:event', function (data) {
             console.log('data:event');
             $scope.event = data;
+
+            $scope.selectedCharacter = data.Character;
+
+            if (!$scope.trackedCharacters[$scope.selectedCharacter].map[data.Map])
+                $scope.trackedCharacters[$scope.selectedCharacter].map[data.Map] = { mobs: [], Exploration: {} };
+
+            if (data.EventSource === 'Exploration') {
+                $scope.trackedCharacters[$scope.selectedCharacter].map[data.Map].Exploration = data.Data.Exploration;
+            }
+            else {
+                if ($scope.trackedCharacters[$scope.selectedCharacter].map[data.Map].mobs.indexOf(data.EventSource) == -1)
+                    $scope.trackedCharacters[$scope.selectedCharacter].map[data.Map].mobs.push(data.EventSource);
+                    
+                         
+                    if (!$scope.trackedCharacters[$scope.selectedCharacter].mob[data.EventSource])
+                    $scope.trackedCharacters[$scope.selectedCharacter].mob[data.EventSource] = {};
+                    
+
+                $scope.trackedCharacters[$scope.selectedCharacter].mob[data.EventSource].Total = data.Data[data.EventSource].Total;
+                $scope.trackedCharacters[$scope.selectedCharacter].mob[data.EventSource].Current = data.Data[data.EventSource].Current;
+                $scope.trackedCharacters[$scope.selectedCharacter].mob[data.EventSource].Completed = data.Data[data.EventSource].Completed;
+            }
+
             $scope.$apply();
         });
 

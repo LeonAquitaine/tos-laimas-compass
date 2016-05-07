@@ -58,43 +58,71 @@ function startMonitor() {
 
                             if (!global.app.data.tracker[event.Family][event.Character]) {
                                 console.log('Creating Character ' + event.Character)
-                                global.app.data.tracker[event.Family][event.Character] = { Level: event.Level };
+                                global.app.data.tracker[event.Family][event.Character] = { map: {}, mob: {} };
                             }
 
-                            if (!global.app.data.tracker[event.Family][event.Character][event.Map]) {
+                            global.app.data.tracker[event.Family][event.Character].Level = event.Level;
+
+                            if (!global.app.data.tracker[event.Family][event.Character].map)
+                                global.app.data.tracker[event.Family][event.Character].map = {};
+
+                            if (!global.app.data.tracker[event.Family][event.Character].mob)
+                                global.app.data.tracker[event.Family][event.Character].mob = {};
+
+                            if (!global.app.data.tracker[event.Family][event.Character].map[event.Map]) {
                                 console.log('Creating Map ' + event.Map)
-                                global.app.data.tracker[event.Family][event.Character][event.Map] = {};
+                                global.app.data.tracker[event.Family][event.Character].map[event.Map] = {};
                             }
+
+                            if (!global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs)
+                                global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs = [];
+
+                            if (!global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration)
+                                global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration = {};
 
                             if (event.Type == "KILL") {
-                                if (!global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob])
-                                    global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob] = {};
 
-                                if (global.app.maps.mobs[event.Mob]);
-                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Data = global.app.maps.mobs[event.Mob];
+                                if (global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs.indexOf(event.Mob) == -1)
+                                    global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs.push(event.Mob);
 
-                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Total = event.ReqKills;
-                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Current = event.Kills;
-                                global.app.data.tracker[event.Family][event.Character][event.Map][event.Mob].Completed = event.Kills >= event.ReqKills; 
+                                if (!global.app.data.tracker[event.Family][event.Character].mob[event.Mob]) {
+                                    global.app.data.tracker[event.Family][event.Character].mob[event.Mob] = {};
+
+                                    if (global.app.maps.mobs[event.Mob])
+                                        global.app.data.tracker[event.Family][event.Character].mob[event.Mob].Data = global.app.maps.mobs[event.Mob];
+                                }
+
+                                global.app.data.tracker[event.Family][event.Character].mob[event.Mob].Total = event.ReqKills;
+                                global.app.data.tracker[event.Family][event.Character].mob[event.Mob].Current = event.Kills;
+                                global.app.data.tracker[event.Family][event.Character].mob[event.Mob].Completed = event.Kills >= event.ReqKills;
                             }
 
                             if (event.Type == "MAP") {
-                                if (!global.app.data.tracker[event.Family][event.Character][event.Map].Exploration)
-                                    global.app.data.tracker[event.Family][event.Character][event.Map].Exploration = {};
-
-                                global.app.data.tracker[event.Family][event.Character][event.Map].Exploration.Total = event.ExplorationTotal;
-                                global.app.data.tracker[event.Family][event.Character][event.Map].Exploration.Current = event.ExplorationCurrent;
-                                global.app.data.tracker[event.Family][event.Character][event.Map].Exploration.Completed = event.ExplorationCurrent >= event.ExplorationTotal;
+                                global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration.Total = event.ExplorationTotal;
+                                global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration.Current = event.ExplorationCurrent;
+                                global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration.Completed = event.ExplorationCurrent >= event.ExplorationTotal;
                             }
 
+                            var preEventDump = global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs.map(function (i) {
+                                return global.app.data.tracker[event.Family][event.Character].mob[i];
+                            });
+                            
+                            var eventDump = {}; 
+                           
+                            preEventDump.forEach(function (i) { eventDump[i.Data.ClassID] = i; });
+                            
+                            if (global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration)
+                                eventDump.Exploration = global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration;
+                                
                             dataEvent = {
                                 Character: event.Character + ' ' + event.Family,
                                 Map: event.Map,
                                 MapData: event.MapData,
-                                Data: global.app.data.tracker[event.Family][event.Character][event.Map],
+                                Data: eventDump,
                                 EventSource: (event.Type === "KILL") ? event.Mob : "Exploration"
                             }
-
+                            
+                                console.log(dataEvent);
                         }
                     }
 
@@ -106,6 +134,7 @@ function startMonitor() {
                         catch (e) {
                         }
                         global.app.server.io.emit('data:event', dataEvent);
+                        global.app.data.lastEvent = dataEvent;
                         fs.writeFileSync(app.constants.trackerRepository, JSON.stringify(global.app.data.tracker), 'utf-8');
                     }
                 });

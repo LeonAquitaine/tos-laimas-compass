@@ -3,7 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 
-function load(pParsed, pSource, dataCollectionName, mapKey) {
+function load(pParsed, pSource, dataCollectionName, mapKey, postParser) {
     var found = false;
 
     console.log(pParsed + ': Checking');
@@ -30,6 +30,10 @@ function load(pParsed, pSource, dataCollectionName, mapKey) {
                         var converter = new Converter({});
 
                         converter.on("end_parsed", function (data) {
+                            
+                            if (postParser)
+                            data = postParser(data);
+                            
                             console.log(pSource + ': Parsed');
                             fs.writeFileSync(pParsed, JSON.stringify(data), 'utf-8');
                             console.log(pSource + ': Saved');
