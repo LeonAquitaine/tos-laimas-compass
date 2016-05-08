@@ -216,7 +216,7 @@ app
             "981": "Fedimian"
         };
 
-        $scope.event = {};
+        $scope.event = null;
 
         var socket = io();
 

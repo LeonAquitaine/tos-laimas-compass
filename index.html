@@ -34,7 +34,7 @@
       <option ng-repeat='(k,v) in trackedCharacters' value="{{k}}">{{k}}</option>
     </select>
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-if="event">
       <div class="panel-body">
         <div class="row m-b-5">
           <h4 class="col-xs-12 hilight"><span class='faded'>{{event.MapData.QuestLevel}} · </span>{{mapHash[event.MapData.ClassID].Description}}</h4>
