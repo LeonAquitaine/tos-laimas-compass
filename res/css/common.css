@@ -366,23 +366,34 @@ button .fa {margin-right:3px;}
 
 .checkmark
 {
-  background-image:url("/res/img/check.png");
+  background-color: #22a060;
   background-size: 100%;
   display:inline-block;
-  width:16px;
-  height:16px;
-  margin-right:2px;
+  width:5px;
+  height:12px;
+  margin-left:1px;
   }
   
 .wip
 {
-  background-image:url("/res/img/wip.png");
+  background-color: #ae5a00;
   background-size: 100%;
   display:inline-block;
-  width:16px;
-  height:16px;
-  margin-right:2px;
+  width:5px;
+  height:12px;
+  margin-left:1px;
   }
+  
+.route
+{
+  background-image:url("/res/img/route.png");
+  background-size: 100%;
+  display:inline-block;
+  width:12px;
+  height:12px;
+  margin-left:1px;
+  }
+  
   
 
   *{
@@ -484,7 +495,7 @@ button .fa {margin-right:3px;}
           background: transparent;
           width:100%;
           border-width: 0;
-          margin:10px 0;
+          margin:10px 0 0 0;
 }
 
 .panel{
@@ -510,4 +521,196 @@ button .fa {margin-right:3px;}
 .roboto
 {
   font-family:robotolight;
+}
+
+.ellipsis
+{
+  overflow-x:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis; 
+}
+
+.travel-log .item
+{
+  font-family:robotolight;
+  font-size:85%;
+}
+
+.white{
+  color: white;
+}
+
+.panel-default>.panel-heading
+{
+  border-width: 0;
+}
+
+.panel-default>.panel-heading h4 {
+  margin:10px;
+  text-align: center;
+}
+
+.panel-default > .panel-heading + .panel-body
+{
+  margin-top:0;
+}
+ 
+
+.panel-body {
+  background-image:
+      url("/res/img/b-body-tl.png"),
+      url("/res/img/b-body-tr.png"),
+      url("/res/img/b-body-br.png"),
+      url("/res/img/b-body-bl.png"),
+      url("/res/img/b-body-t.png"),
+      url("/res/img/b-body-b.png"),
+      url("/res/img/b-body-l.png"),
+      url("/res/img/b-body-r.png"),
+      url("/res/img/b-body-bg.png");
+  background-position:
+      top left,
+      top right,
+      bottom right,
+      bottom left,
+      center top,
+      center bottom,
+      left center,
+      right center,
+      center center;
+  background-repeat:
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      repeat-x, 
+      repeat-x, 
+      repeat-y, 
+      repeat-y, 
+      repeat;
+  margin:15px;
+  padding:25px;
+  border-radius:20px;
+}
+
+
+
+.panel{
+  position:relative;
+  border-width: 0;
+  margin-top:48px;
+  
+  border:2px solid black;
+  
+  background-image:
+      url("/res/img/bg-hoz-bar.png"),
+      url("/res/img/bg-bg.png");
+  background-position:
+      center bottom,
+      center center;
+  background-repeat:
+      repeat-x, 
+      repeat;
+  background-size:
+      auto auto,
+      auto auto;
+}
+
+.panel::before
+{
+  content: "";
+	position: absolute;
+  height:39px;
+  top:-38px;
+  left:0;
+  right:0;
+  display: block;
+  background-image:
+      url("/res/img/bg-crest-l.png"), 
+      url("/res/img/bg-crest-r.png"),
+      url("/res/img/bg-hoz-bar.png");
+  background-position:
+      left top,
+      right top,
+      center bottom;
+  background-repeat:
+      no-repeat, 
+      no-repeat,
+      repeat-x; 
+}
+
+.selectable:hover{
+  background-color: #a18961;
+}
+
+.marker
+{
+  display: inline-block;
+  border:1px solid #544833;
+}
+
+.panel-heading .float-right 
+{
+  margin: 10px 10px 0 0;
+}
+
+.panel-heading .float-right a 
+{
+  color: #a0b0d0;
+}
+
+.panel-heading .float-right a:hover 
+{
+  color: white;
+   text-shadow: 0px 0px 4px rgba(128, 203, 255, 1);
+}
+
+
+.panel-heading .float-right input{
+  
+      vertical-align: sub;
+  
+}
+
+.panel-body .content-wrapper
+{
+    max-height: 500px;
+
+  height:100%;
+  overflow-x:hidden;
+  padding-right:5px;
+}
+
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #544833;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #544833;
+}
+::-webkit-scrollbar-track:active {
+  background: #3b3223;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

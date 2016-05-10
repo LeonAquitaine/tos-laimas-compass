@@ -34,50 +34,80 @@
       <option ng-repeat='(k,v) in trackedCharacters' value="{{k}}">{{k}}</option>
     </select>
 
-    <div class="panel panel-default" ng-if="event">
-      <div class="panel-body">
-        <div class="row m-b-5">
-          <h4 class="col-xs-12 hilight"><span class='faded'>{{event.MapData.QuestLevel}} · </span>{{mapHash[event.MapData.ClassID].Description}}</h4>
-        </div>
-        <div class="row p-10 p-0" ng-repeat='(k,v) in event.Data'>
-          <div class="col-xs-1 faded a-r">{{v.Data.Level ? v.Data.Level : ''}}</div>
-          <div class="col-xs-4" ng-class='{"active": event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
-          <div class="col-xs-7 p-rel" ng-class='{"completed": v.Completed}'>
+    <div class="row">
 
-            <span class='float-left mini'>{{v.Current}}/{{v.Total}}</span>
-            <span class='float-right mini'>{{v.Current / v.Total * 100 | number:2}}%</span>
-            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{ v.Completed ? 100 : (v.Current / v.Total) * 100}}%">
-              &nbsp;
+      <div class="col-md-6">
+
+        <div class="panel panel-default" ng-if="event">
+          <div class="panel-heading">
+            <h4 class="hilight"><span class='faded'>{{event.MapData.QuestLevel}} · </span>{{mapHash[event.MapData.ClassID].Description}}</h4>
+          </div>
+
+          <div class="panel-body">
+            <div class="row p-10 p-0" ng-repeat='(k,v) in event.Data'>
+              <div class="col-xs-1 faded a-r">{{v.Data.Level ? v.Data.Level : ''}}</div>
+              <div class="col-xs-5 ellipsis" ng-class='{"active": event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
+              <div class="col-xs-6 p-rel" ng-class='{"completed": v.Completed}'>
+
+                <span class='float-left mini'>{{v.Current}}/{{v.Total}}</span>
+                <span class='float-right mini'>{{v.Current / v.Total * 100 | number:2}}%</span>
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{ v.Completed ? 100 : (v.Current / v.Total) * 100}}%">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default" ng-if='route'>
+          <div class="panel-heading">
+            <div class="float-right"><a href="#" ng-click="delRoute()">Clear</a></div>
+
+            <h4 class="hilight">Route</h4>
+          </div>
+
+          <div class="panel-body">
+            <div class="row" ng-repeat="i in route">
+              <div class='col-xs-2 item white'>{{mapHash[i].QuestLevel}}</div>
+              <div class='col-xs-10 ellipsis item'>
+                {{mapHash[i].Description}}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+
+        <div class="panel panel-default travel-log">
+          <div class="panel-heading">
+            <div class="float-right"><label class='mini'>Show All</label><input type="checkbox" ng-model="showAll"></div>
+            <h4 class="hilight">Travel Log</h4>
+          </div>
+
+          <div class="panel-body">
+            <div class="content-wrapper">
+              <div class="row selectable" ng-repeat="(k,v) in mapOrderedHashList" ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].mobs.length || showAll">
+
+
+                <div class='col-xs-2 item white'>{{mapHash[v.ClassID].QuestLevel}}</div>
+                <div class='col-xs-10 ellipsis item'>
+                  <div class='float-right'>
+                    <a ng-click='calcRoute(v.ClassID)'><span class='route'></span></a>
+                  </div>
+                  <div class='float-right'>
+                    <div ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].Exploration">
+                      <span ng-repeat="m in trackedCharacters[selectedCharacter].map[v.ClassName].mobs" class="marker" ng-class="{'wip': !trackedCharacters[selectedCharacter].mob[m].Completed, 'checkmark': trackedCharacters[selectedCharacter].mob[m].Completed}"></span><!--
+                 --><span ng-if="!trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker wip"></span><!--
+                 --><span ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker checkmark"></span>
+                    </div>
+                  </div>
+                  {{mapHash[v.ClassID].Description}}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="float-right"><label class='mini'>Show All</label><input type="checkbox" ng-model="showAll"></div>
-        Travel Log</div>
-      <div class="panel-body">
-
-        <div class='roboto'>
-          <div class="row" ng-repeat="(k,v) in mapOrderedHashList" ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].mobs.length || showAll">
-            <div class='col-xs-2'>{{mapHash[v.ClassID].QuestLevel}}</div>
-            <div class='col-xs-10'>
-              <div class='float-right'>
-                <div ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].Exploration">
-                  <span ng-repeat="m in trackedCharacters[selectedCharacter].map[v.ClassName].mobs" ng-class="{'wip': !trackedCharacters[selectedCharacter].mob[m].Completed, 'checkmark': trackedCharacters[selectedCharacter].mob[m].Completed}"></span>
-                  <span ng-if="!trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="wip"></span>
-                  <span ng-if="trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="checkmark"></span>
-                </div>
-              </div>
-              {{mapHash[v.ClassID].Description}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
     <pre>{{event | json}}</pre>
     <pre>{{trackedCharacters[selectedCharacter] | json}}</pre>
   </div>

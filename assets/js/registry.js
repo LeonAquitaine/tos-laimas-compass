@@ -9,17 +9,18 @@ function startMonitor() {
 
         if (fn === 'data.txt') {
             if ((event === 'change') || (event === 'add')) {
+                
                 fs.readFile(path, 'utf8', function (err, data) {
+                    
                     if (err) {
                         return console.log(err);
                     }
 
                     var queue = data.replace('\r', '').split('\n');
 
-                    console.log("Processing " + queue.length + " lines");
+                    console.log("Processing " + (queue.length - 1) + " line(s)");
 
                     var dataEvent = null;
-
 
                     for (var i = 0; i < queue.length; i++) {
 
@@ -106,14 +107,14 @@ function startMonitor() {
                             var preEventDump = global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs.map(function (i) {
                                 return global.app.data.tracker[event.Family][event.Character].mob[i];
                             });
-                            
-                            var eventDump = {}; 
-                           
+
+                            var eventDump = {};
+
                             preEventDump.forEach(function (i) { eventDump[i.Data.ClassID] = i; });
-                            
+
                             if (global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration)
                                 eventDump.Exploration = global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration;
-                                
+
                             dataEvent = {
                                 Character: event.Character + ' ' + event.Family,
                                 Map: event.Map,
@@ -121,8 +122,6 @@ function startMonitor() {
                                 Data: eventDump,
                                 EventSource: (event.Type === "KILL") ? event.Mob : "Exploration"
                             }
-                            
-                                console.log(dataEvent);
                         }
                     }
 
@@ -140,8 +139,6 @@ function startMonitor() {
                 });
             }
         }
-
-        console.log(event, path);
     });
 }
 
