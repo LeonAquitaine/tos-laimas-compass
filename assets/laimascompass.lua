@@ -39,7 +39,7 @@ function MOD_LAIMAS_COMPASS_MON_DEAD_CLIENT(actor)
 		local mapClassName = session.GetMapName();
     	local mapIES = GetClass('Map', mapClassName)
 
-		local modHeader = _G["LAIMAS_COMPASS"]["PREHEADER"];
+		local modHeader = GETMYPCNAME() .. "|" .. GETMYFAMILYNAME() .. "|" ..GETMYPCLEVEL();
 		
 		MOD_DUMP_DATALINE("KILL|" .. modHeader .. "|" .. mapClassName .. "|" .. monID .. "|" .. killCount .. "|" .. killsRequired);
 	end
@@ -58,7 +58,7 @@ end
 function DUMP_MAP_DATA(frame)
 
 	local mapClassName = session.GetMapName();
-	local modHeader = _G["LAIMAS_COMPASS"]["PREHEADER"];
+	local modHeader = GETMYPCNAME() .. "|" .. GETMYFAMILYNAME() .. "|" ..GETMYPCLEVEL();
 	local list = session.GetMapFogList(mapClassName);
 	local cnt = list:Count();
 	
