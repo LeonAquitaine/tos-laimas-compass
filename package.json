@@ -25,6 +25,7 @@
   "author": "Leo Botinelly <lbotinelly@outlook.com>",
   "devDependencies": {
     "electron-builder": "^3.11.0",
+    "electron-packager": "^7.0.1",
     "grunt": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
