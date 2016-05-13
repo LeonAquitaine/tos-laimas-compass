@@ -9,22 +9,22 @@ function startMonitor() {
 
         if (fn === 'data.txt') {
             if ((event === 'change') || (event === 'add')) {
-                
+
                 fs.readFile(path, 'utf8', function (err, data) {
-                    
+
                     if (err) {
                         return console.log(err);
                     }
 
                     var queue = data.replace('\r', '').split('\n');
 
-                    console.log("Processing " + (queue.length - 1) + " line(s)");
-
                     var dataEvent = null;
 
                     for (var i = 0; i < queue.length; i++) {
 
                         var li = queue[i].replace('\n', '');
+
+                        console.log(li);
 
                         var dat = li.split('|');
 
@@ -142,6 +142,37 @@ function startMonitor() {
     });
 }
 
+function fileMd5(file) {
+
+    var fs = require('fs');
+    var md5 = require('md5');
+
+    var content = fs.readFileSync(file);
+    var hash = md5(content);
+
+    console.log("   MD5 " + hash + " " + file);
+
+    return hash;
+}
+
+function fileValidate(source, destination) {
+
+    try {
+        if (fileMd5(source) != fileMd5(destination)) {
+            var fs = require('fs');
+            fs.createReadStream(source).pipe(fs.createWriteStream(destination));
+            console.log("UPDATE: " + destination);
+        } else {
+            console.log("SAME: " + destination);
+        }
+
+    } catch (e) {
+        console.log("ERR: " + destination);
+        console.log(e);
+    }
+
+};
+
 function detectRepo() {
 
     var fs = require('fs');
@@ -157,15 +188,52 @@ function detectRepo() {
 
             console.log(repoPath + ": Checking");
 
+            var fs = require('fs');
+
+            if (fs.existsSync(repoPath)) {
+                console.log(repoPath + ': Found');
+
+                global.app.settings.gameFolder = repoPath;
+
+                var mustCopy = false;
+                var currPath = path.join(repoPath, '\\addons');
+
+                if (!fs.existsSync(currPath)) // Creates the add-on folder if it doesn't exist 
+                    fs.mkdirSync(currPath);
+
+                var addOnPath = currPath;
+
+                fileValidate(
+                    path.join(repoPath, '\\addons\\addonloader.lua'),
+                    path.join(__dirname, '\\..\\addonloader.lua'));
+
+                fileValidate(
+                    path.join(repoPath, '\\data\\SumAni.ipf'),
+                    path.join(__dirname, '\\..\\SumAni.ipf'));
+
+                global.app.settings.gameAddOnFolder = addOnPath;
+
+                if (!fs.existsSync(currPath)) // Creates the add-on global folder if it doesn't exist 
+                    fs.mkdirSync(currPath);
+
+                currPath = path.join(path.join(repoPath, '\\addons\\laimascompass'));
+
+                if (!fs.existsSync(currPath)) // Creates the add-on specific folder if it doesn't exist 
+                    fs.mkdirSync(currPath);
+
+                fileValidate(
+                    path.join(repoPath, '\\addons\\laimascompass\\laimascompass.lua'),
+                    path.join(__dirname, '\\..\\laimascompass.lua'));
+
+                global.app.settings.addOnPath = addOnPath;
+
+                startMonitor();
+            }
+
+
+
             fs.access(repoPath, fs.F_OK, function (err) {
                 if (!err) {
-                    console.log(repoPath + ': Found');
-
-                    var addOnPath = path.join(repoPath, '\\addons\\laimascompass');
-                    console.log(addOnPath + ': Add-On folder');
-                    global.app.settings.addOnPath = addOnPath;
-
-                    startMonitor();
 
                 } else {
                     console.log(repoPath + ": Not found")

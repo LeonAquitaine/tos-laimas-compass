@@ -306,6 +306,13 @@ var Graph=function(t){var r=function(t){var r,n=[];for(r in t)Object.prototype.h
             $scope.$apply();
         });
 
+        socket.on('data:server', function (data) {
+            console.log('data:server');
+            console.log(data);
+            $scope.server = data;
+            $scope.$apply();
+        });
+
         socket.on('data:tracker', function (data) {
             console.log('data:tracker');
             $scope.tracker = data;

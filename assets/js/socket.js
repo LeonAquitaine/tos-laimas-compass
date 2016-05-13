@@ -18,4 +18,9 @@
         {
             socket.emit('data:event', global.app.data.lastEvent);
         }
+        
+        var os = require("os");
+        var host = os.hostname();
+        
+        socket.emit('data:server', host + ":" + global.app.constants.__SERVER_PORT);
     };

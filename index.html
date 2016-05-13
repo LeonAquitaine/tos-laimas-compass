@@ -77,7 +77,6 @@
 
       </div>
       <div class="col-md-6">
-
         <div class="panel panel-default travel-log">
           <div class="panel-heading">
             <div class="float-right"><label class='mini'>Show All</label><input type="checkbox" ng-model="showAll"></div>
@@ -108,8 +107,25 @@
         </div>
       </div>
     </div>
-    <pre>{{event | json}}</pre>
-    <pre>{{trackedCharacters[selectedCharacter] | json}}</pre>
+    
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="hilight">Mobile Link</h4>
+          </div>
+
+          <div class="panel-body">
+            {{server}}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+<!--    <pre>{{event | json}}</pre>
+    <pre>{{trackedCharacters[selectedCharacter] | json}}</pre> -->
   </div>
 </body>
 
