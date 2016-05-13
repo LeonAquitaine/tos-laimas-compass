@@ -673,7 +673,7 @@ button .fa {margin-right:3px;}
 
 .panel-body .content-wrapper
 {
-    max-height: 500px;
+    max-height: 400px;
 
   height:100%;
   overflow-x:hidden;
