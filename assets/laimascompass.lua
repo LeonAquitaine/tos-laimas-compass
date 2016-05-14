@@ -1,3 +1,13 @@
+function MOD_REGISTER_HOOK(modName, hookKey, hookFunction)
+
+	if _G[modName][hookKey] == nil then
+		_G[modName][hookKey] = _G[hookKey];
+		_G[hookKey] = hookFunction;
+	else
+		_G[hookKey] = hookFunction;
+	end
+end
+
 function MOD_DUMP_DATALINE(contents)
 
 	local file, error = io.open("../addons/laimascompass/data.txt", "a");
