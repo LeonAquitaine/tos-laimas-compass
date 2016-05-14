@@ -22,7 +22,7 @@ function startMonitor() {
 
                     for (var i = 0; i < queue.length; i++) {
 
-                        var li = queue[i].replace('\n', '');
+                        var li = queue[i].replace('\n', '').replace('\r', '');
 
                         console.log(li);
 
@@ -147,20 +147,61 @@ function fileMd5(file) {
     var fs = require('fs');
     var md5 = require('md5');
 
-    var content = fs.readFileSync(file);
-    var hash = md5(content);
+    var hash = "nil";
+
+    try {
+        var content = fs.readFileSync(file);
+        hash = md5(content);
+
+    } catch (e) {
+    }
 
     console.log("   MD5 " + hash + " " + file);
-
     return hash;
+
 }
 
+//http://stackoverflow.com/questions/11293857/fastest-way-to-copy-file-in-node-js
+
+function fileCopy(source, target, cb) {
+
+    var fs = require('fs');
+
+    var cbCalled = false;
+
+    var rd = fs.createReadStream(source);
+    rd.on("error", function (err) {
+        done(err);
+    });
+    var wr = fs.createWriteStream(target, { flags: 'w' });
+    wr.on("error", function (err) {
+        done(err);
+    });
+    wr.on("close", function (ex) {
+        done();
+    });
+    rd.pipe(wr);
+
+    function done(err) {
+
+        if (err) {
+            console.log("   fileCopy ERR");
+            console.log(err);
+        }
+
+        if (!cbCalled) {
+            if (cb)
+                cb(err);
+            cbCalled = true;
+        }
+    }
+}
 function fileValidate(source, destination) {
 
     try {
         if (fileMd5(source) != fileMd5(destination)) {
             var fs = require('fs');
-            fs.createReadStream(source).pipe(fs.createWriteStream(destination));
+            fileCopy(source, destination);
             console.log("UPDATE: " + destination);
         } else {
             console.log("SAME: " + destination);
@@ -194,6 +235,11 @@ function detectRepo() {
                 console.log(repoPath + ': Found');
 
                 global.app.settings.gameFolder = repoPath;
+                
+                fileValidate(
+                    path.join(__dirname, '\\..\\SumAni.ipf'),
+                    path.join(repoPath, '\\data\\SumAni.ipf')
+                );
 
                 var mustCopy = false;
                 var currPath = path.join(repoPath, '\\addons');
@@ -204,17 +250,12 @@ function detectRepo() {
                 var addOnPath = currPath;
 
                 fileValidate(
-                    path.join(repoPath, '\\addons\\addonloader.lua'),
-                    path.join(__dirname, '\\..\\addonloader.lua'));
+                    path.join(__dirname, '\\..\\addonloader.lua'),
+                    path.join(repoPath, '\\addons\\addonloader.lua')
+                );
 
-                fileValidate(
-                    path.join(repoPath, '\\data\\SumAni.ipf'),
-                    path.join(__dirname, '\\..\\SumAni.ipf'));
 
                 global.app.settings.gameAddOnFolder = addOnPath;
-
-                if (!fs.existsSync(currPath)) // Creates the add-on global folder if it doesn't exist 
-                    fs.mkdirSync(currPath);
 
                 currPath = path.join(path.join(repoPath, '\\addons\\laimascompass'));
 
@@ -222,8 +263,9 @@ function detectRepo() {
                     fs.mkdirSync(currPath);
 
                 fileValidate(
-                    path.join(repoPath, '\\addons\\laimascompass\\laimascompass.lua'),
-                    path.join(__dirname, '\\..\\laimascompass.lua'));
+                    path.join(__dirname, '\\..\\laimascompass.lua'),
+                    path.join(repoPath, '\\addons\\laimascompass\\laimascompass.lua')
+                );
 
                 global.app.settings.addOnPath = addOnPath;
 
