@@ -3,7 +3,6 @@ function trydofile(name)
 end
 
 trydofile("../addons/utility.lua"); --Possible Excrulon's dependency file.
-trydofile("../addons/addonhelper.lua"); --Possible Lunardi's dependency file.
 
 -- http://stackoverflow.com/questions/5303174/how-to-get-list-of-directories-in-lua
 local addons = io.popen([[dir "../addons/" /b /ad]]):lines();
