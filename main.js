@@ -26,9 +26,10 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
   mainWindow.loadURL('http://localhost:' + app.constants.__SERVER_PORT + '/');
-  mainWindow.webContents.openDevTools();
-  mainWindow.setAlwaysOnTop(true);
-  
+
+  //mainWindow.webContents.openDevTools();
+  //mainWindow.setAlwaysOnTop(true);
+
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
@@ -40,16 +41,15 @@ var gracefulShutdown = function () {
   console.log("Received kill signal, shutting down gracefully.");
   express.close(function () {
     console.log("Closed out remaining connections.");
-    process.exit()
+    process.exit();
   });
 
   electronApp.on('window-all-closed', function () {
 
     gracefulShutdown();
-
-    if (process.platform !== 'darwin') {
-      electronApp.quit();
-    }
+    //if (process.platform !== 'darwin') {
+    electronApp.quit();
+    //}
   });
 
   electronApp.on('activate', function () {
