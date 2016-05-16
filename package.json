@@ -1,6 +1,7 @@
 {
   "name": "tos-laimas-compass",
   "version": "0.0.1",
+  "main": "main.js",
   "description": "A companion tool for the completionist Revelator",
   "repository": {
     "type": "git",
@@ -16,7 +17,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "clean:win": "rimraf dist/win",
-    "start": "electron main.js",
+    "start": "electron .",
+    "watch": "./node_modules/.bin/webpack-dev-server",
+    "electron-rebuild": "./node_modules/.bin/electron-rebuild",
     "pack": "npm run && build",
     "dist": "npm run && build",
     "release": "npm run && build",
@@ -24,13 +27,7 @@
   },
   "author": "Leo Botinelly <lbotinelly@outlook.com>",
   "devDependencies": {
-    "electron-builder": "^3.11.0",
-    "electron-packager": "^7.0.1",
-    "grunt": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest",
-    "jshint": "^2.9.2",
-    "rimraf": "^2.5.2"
+    "electron-packager": "^7.0.1"
   },
   "build": {
     "iconUrl": "(windows only)",
@@ -45,6 +42,7 @@
     "express": "^4.13.4",
     "jquery": "^2.2.3",
     "regedit": "^2.2.6",
-    "socket.io": "^1.4.5"
+    "socket.io": "^1.4.5",
+    "md5": "latest"
   }
 }
