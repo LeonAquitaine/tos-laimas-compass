@@ -3,7 +3,7 @@
 # Laima's Compass
 A companion tool for the completionist Revelator
 
-Screenshots galore ahead!
+Screenshots:
 
 [WIP] Laima's Advice
 ---
