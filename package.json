@@ -35,14 +35,16 @@
   },
   "dependencies": {
     "angular": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
     "bootstrap": "^3.3.6",
     "chokidar": "^1.4.3",
     "csvtojson": "^0.5.3",
     "electron-prebuilt": "^0.37.7",
     "express": "^4.13.4",
+    "font-awesome": "^4.6.1",
     "jquery": "^2.2.3",
+    "md5": "^2.1.0",
     "regedit": "^2.2.6",
-    "socket.io": "^1.4.5",
-    "md5": "latest"
+    "socket.io": "^1.4.5"
   }
 }
