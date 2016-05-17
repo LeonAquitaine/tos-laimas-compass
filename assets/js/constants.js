@@ -15,3 +15,4 @@ define("sourceMaps", path.join(__dirname, '..\\..\\assets\\data\\maps.csv'));
 define("parsedMobs", path.join(__dirname, '..\\..\\assets\\data\\mobs.json'));
 define("sourceMobs", path.join(__dirname, '..\\..\\assets\\data\\mobs.csv'));
 define("trackerRepository", path.join(__dirname, '..\\..\\assets\\data\\tracker.json'));
+define("settingsRepository", path.join(__dirname, '..\\..\\assets\\data\\settings.json'));
