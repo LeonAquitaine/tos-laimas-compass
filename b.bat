@@ -4,6 +4,9 @@ CD
 DEL ".\tos-laimas-compass-win32-x64\resources\app\.gitignore" /f
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.bat" /f
 
+DEL ".\tos-laimas-compass-win32-x64\resources\app\assets\data\tracker.json" /f
+DEL ".\tos-laimas-compass-win32-x64\resources\app\assets\data\settings.json" /f
+
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.less" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\.npmignore" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\.dockerignore" /f /s
@@ -20,4 +23,3 @@ DEL ".\tos-laimas-compass-win32-x64\resources\app\*.map" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.iml" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.ipr" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.iws" /f /s
-
