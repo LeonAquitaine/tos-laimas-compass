@@ -1,0 +1,44 @@
+<div ng-controller="configController" class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="hilight">Settings</h4>
+        </div>
+
+        {{data.settings.gameFolder}}
+        <button ng-if="canShowDialog" ng-click="pickDirectory()">Open</button>
+      </div>
+    </div>
+    
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="hilight">Mobile Link</h4>
+          
+          Type this URL on your mobile browser
+        </div>
+        
+        
+
+        <div class="panel-body">
+          http://{{data.server}}
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    
+    
+  </div>
+  
+  
+
+<pre>[[Debug Info]]</pre>
+
+  <pre>{{data.event | json}}</pre>
+  <pre>{{data.trackedCharacters | json}}</pre>
+
+</div>

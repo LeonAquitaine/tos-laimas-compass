@@ -6,12 +6,19 @@ var http = require('http').createServer(express);
 var io = require('socket.io').listen(http);
 var path = require('path');
 
-express.use('/res', baseExpress.static(path.join(__dirname, '/res')));
-express.use('/test', baseExpress.static(path.join(__dirname, '/test')));
-express.use('/node_modules', baseExpress.static(path.join(__dirname, '/node_modules')));
+express.use('/res', baseExpress.static(path.join(global.app.baseDirectory, '/res')));
+express.use('/test', baseExpress.static(path.join(global.app.baseDirectory, '/test')));
+express.use('/node_modules', baseExpress.static(path.join(global.app.baseDirectory, '/node_modules')));
 
 express.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  
+  console.log('>>>>>' + global.app.baseDirectory);
+
+  var idxPath = path.join(global.app.baseDirectory, 'index.html') ;
+  
+  console.log('>>>>>' + idxPath);
+  
+  res.sendFile(idxPath);
 });
 
 io.on('connection', function (socket) {
