@@ -36,14 +36,20 @@ function createWindow() {
 
   mainWindow.on('closed', function () {
     mainWindow = null;
+    gracefulShutdown();
   });
 }
 
 electronApp.on('ready', createWindow);
 
 var gracefulShutdown = function () {
+  
+  electronApp.quit();
+  
+  return;
+  
   console.log("Received kill signal, shutting down gracefully.");
-  express.close(function () {
+  global.app.modules.express.close(function () {
     console.log("Closed out remaining connections.");
     process.exit();
   });
