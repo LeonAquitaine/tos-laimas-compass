@@ -31,7 +31,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
   mainWindow.loadURL('http://localhost:' + app.constants.__SERVER_PORT + '/');
 
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   //mainWindow.setAlwaysOnTop(true);
 
   mainWindow.on('closed', function () {
