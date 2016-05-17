@@ -10,7 +10,7 @@ app
             console.log("from: " + $scope.data.event.MapData.ClassID);
             console.log("to: " + destinyIdClass);
 
-            var graph = new Graph($scope.nodes);
+            var graph = new Graph($scope.data.nodes);
             $scope.route = graph.findShortestPath($scope.data.event.MapData.ClassID, destinyIdClass);
 
             console.log($scope.route);
