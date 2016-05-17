@@ -3,21 +3,25 @@
 //Bootstrap
 global.app = {
   constants: require('./assets/js/constants.js'),
-  data: {},
+  data: {
+    settings: {}
+  },
   maps: {},
-  settings: {}
+  modules:{},
+  baseDirectory: __dirname
 };
 
-require('./server.js');
-require('./assets/js/socket.js');
-require('./assets/js/data.js');
-require('./assets/js/registry.js');
+global.app.modules.server = require('./assets/js/server.js');
+global.app.modules.socket = require('./assets/js/socket.js');
+global.app.modules.data = require('./assets/js/data.js');
+global.app.modules.fileMonitor = require('./assets/js/fileMonitor.js');
+global.app.modules.fileHandling = require('./assets/js/fileHandling.js');
+global.app.modules.electron = require('electron'); 
 
 //Electron initialization
 
-const electron = require('electron');
-const electronApp = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const electronApp = global.app.modules.electron.app;
+const BrowserWindow = global.app.modules.electron.BrowserWindow;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -27,7 +31,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({ width: 800, height: 600 });
   mainWindow.loadURL('http://localhost:' + app.constants.__SERVER_PORT + '/');
 
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   //mainWindow.setAlwaysOnTop(true);
 
   mainWindow.on('closed', function () {
