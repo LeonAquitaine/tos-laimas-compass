@@ -71,7 +71,7 @@ function fileValidate(source, destination) {
 };
 
 function detectRepo() {
-    
+
     console.log('Detecting Steam folder...');
 
     var fs = require('fs');
@@ -84,7 +84,7 @@ function detectRepo() {
             var path = require('path');
 
             var repoPath = path.join(steamPath, '\\steamapps\\common\\TreeOfSavior');
-            
+
             trySetGameFolder(repoPath);
         }
     })
@@ -150,9 +150,13 @@ function trySetGameFolder(repoPath) {
     });
 };
 
-if (!global.app.data.settings.gameFolder) detectRepo();
+if (!global.app.data.settings.gameFolder)
+    detectRepo();
+else
+    trySetGameFolder(global.app.data.settings.gameFolder);
+
 
 module.exports = {
     detectRepo,
     trySetGameFolder
- };
+};
