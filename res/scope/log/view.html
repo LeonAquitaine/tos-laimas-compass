@@ -1,6 +1,6 @@
   <div ng-controller="logController" class="container-fluid">
     <div class='charSelector-container'>
-      <select ng-model="selectedCharacter" class='charSelector'>
+      <select ng-model="data.selectedCharacter" class='charSelector'>
         <option ng-repeat='(k,v) in data.trackedCharacters' value="{{k}}">{{k}} · Lv.{{v.Level}}</option>
         </select>
     </div>
@@ -9,7 +9,7 @@
 
       <div class="col-md-6">
 
-        <div class="panel panel-default" ng-if="event">
+        <div class="panel panel-default" ng-if="data.event">
           <div class="panel-heading">
             <h4 class="hilight"><span class='faded'>{{data.event.MapData.QuestLevel}} · </span>{{data.mapHash[data.event.MapData.ClassID].Description}}</h4>
           </div>
@@ -17,7 +17,7 @@
           <div class="panel-body">
             <div class="row p-10 p-0" ng-repeat='(k,v) in data.event.Data'>
               <div class="col-xs-1 faded a-r">{{v.Data.Level ? v.Data.Level : ''}}</div>
-              <div class="col-xs-5 ellipsis" ng-class='{"active": event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
+              <div class="col-xs-5 ellipsis" ng-class='{"active": data.event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
               <div class="col-xs-6 p-rel" ng-class='{"completed": v.Completed}'>
 
                 <span class='float-left mini'>{{v.Current}}/{{v.Total}}</span>
@@ -50,13 +50,13 @@
       <div class="col-md-6">
         <div class="panel panel-default travel-log">
           <div class="panel-heading">
-            <div class="float-right"><label class='mini'>Show All</label><input type="checkbox" ng-model="showAll"></div>
+            <div class="float-right"><label class='mini'>Show Undiscovered Places</label><input type="checkbox" ng-model="showAll"></div>
             <h4 class="hilight">Travel Log</h4>
           </div>
 
           <div class="panel-body">
             <div class="content-wrapper">
-              <div class="row selectable" ng-repeat="(k,v) in data.mapOrderedHashList" ng-if="data.trackedCharacters[selectedCharacter].map[v.ClassName].mobs.length || showAll">
+              <div class="row selectable" ng-repeat="(k,v) in data.mapOrderedHashList" ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassName].mobs.length || showAll">
 
 
                 <div class='col-xs-2 item white'>{{data.mapHash[v.ClassID].QuestLevel}}</div>
@@ -65,12 +65,12 @@
                     <a ng-click='calcRoute(v.ClassID)'><span class='route'></span></a>
                   </div>
                   <div class='float-right'>
-                    <div ng-if="data.trackedCharacters[selectedCharacter].map[v.ClassName].Exploration">
-                      <span ng-repeat="m in data.trackedCharacters[selectedCharacter].map[v.ClassName].mobs" class="marker" ng-class="{'wip': !data.trackedCharacters[selectedCharacter].mob[m].Completed, 'checkmark': data.trackedCharacters[selectedCharacter].mob[m].Completed}"></span>
+                    <div ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassName].Exploration">
+                      <span ng-repeat="m in data.trackedCharacters[data.selectedCharacter].map[v.ClassName].mobs" class="marker" ng-class="{'wip': !data.trackedCharacters[data.selectedCharacter].mob[m].Completed, 'checkmark': data.trackedCharacters[data.selectedCharacter].mob[m].Completed}"></span>
                       <!--
-                 --><span ng-if="!data.trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker wip"></span>
+                 --><span ng-if="!data.trackedCharacters[data.selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker wip"></span>
                       <!--
-                 --><span ng-if="data.trackedCharacters[selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker checkmark"></span>
+                 --><span ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker checkmark"></span>
                     </div>
                   </div>
                   {{data.mapHash[v.ClassID].Description}}</div>

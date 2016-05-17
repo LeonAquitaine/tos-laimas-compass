@@ -19,5 +19,7 @@ app
         $scope.delRoute = function () {
             delete $scope.route;
         };
+        
+        $scope.showAll = true;
 
     });

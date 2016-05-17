@@ -1,44 +1,26 @@
 <div ng-controller="configController" class="container-fluid">
   <div class="row">
-
     <div class="col-md-12">
-      <div class="panel panel-default">
+      <div class="panel panel-default row">
         <div class="panel-heading">
           <h4 class="hilight">Settings</h4>
         </div>
-
-        {{data.settings.gameFolder}}
-        <button ng-if="canShowDialog" ng-click="pickDirectory()">Open</button>
-      </div>
-    </div>
-    
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="hilight">Mobile Link</h4>
-          
-          Type this URL on your mobile browser
-        </div>
-        
-        
-
-        <div class="panel-body">
-          http://{{data.server}}
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>Game Folder</label>
+            <input type="text" disabled class="form-control" placeholder="(click Browse to select)" ng-model="data.settings.gameFolder">
+            <small class="text-muted">This needs to be set in order for the Travel Log monitor to work.</small>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" ng-if="canShowDialog" ng-click="pickDirectory()">Select Game Folder</button>
+          </div>
+          <div class="form-group">
+            <label>Mobile Link</label>
+            <input type="text" disabled class="form-control" ng-model="data.server">
+            <small class="text-muted">Type this URL on your mobile browser to use it as a remote monitor.</small>
+          </div>
         </div>
       </div>
-      
-      
     </div>
-    
-    
-    
   </div>
-  
-  
-
-<pre>[[Debug Info]]</pre>
-
-  <pre>{{data.event | json}}</pre>
-  <pre>{{data.trackedCharacters | json}}</pre>
-
 </div>

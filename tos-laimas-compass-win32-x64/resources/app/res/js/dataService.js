@@ -1,5 +1,5 @@
 app.service('dataService', function ($rootScope) {
-    
+
     var serv = this;
 
     serv.mapNames = {
@@ -281,26 +281,26 @@ app.service('dataService', function ($rootScope) {
 
         serv.nodes = nodes;
 
-         $rootScope.$digest();
+        $rootScope.$digest();
     });
 
     socket.on('mobs', function (data) {
         console.log('data:mobs');
         serv.mobs = data;
-         $rootScope.$digest();
+        $rootScope.$digest();
     });
 
     socket.on('settings', function (data) {
         console.log('data:settings');
         serv.settings = data;
-         $rootScope.$digest();
+        $rootScope.$digest();
     });
 
     socket.on('server', function (data) {
         console.log('data:server');
         console.log(data);
         serv.server = data;
-         $rootScope.$digest();
+        $rootScope.$digest();
     });
 
     socket.on('tracker', function (data) {
@@ -309,13 +309,25 @@ app.service('dataService', function ($rootScope) {
 
         serv.trackedCharacters = {};
 
+        var defaultChar = -1;
+
         for (var k in serv.tracker)
             for (var l in serv.tracker[k]) {
                 var name = l + ' ' + k;
+
+                if (defaultChar == -1) {
+                    console.log("Picking " + name);
+                    defaultChar = name;
+                }
+
                 serv.trackedCharacters[name] = serv.tracker[k][l];
             }
 
-         $rootScope.$digest();
+        if (!serv.selectedCharacter)
+            if (defaultChar != -1)
+                serv.selectedCharacter = defaultChar;
+
+        $rootScope.$digest();
     });
 
     socket.on('event', function (data) {
@@ -344,7 +356,7 @@ app.service('dataService', function ($rootScope) {
             serv.trackedCharacters[serv.selectedCharacter].mob[data.EventSource].Completed = data.Data[data.EventSource].Completed;
         }
 
-         $rootScope.$digest();
+        $rootScope.$digest();
     });
 
 

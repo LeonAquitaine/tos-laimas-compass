@@ -487,11 +487,6 @@ button .fa {margin-right:3px;}
   text-align: right;
 }
 
-.charSelector-container {
-   background-color: black;
-   color:gray;
-   }
-
 .charSelector-container .charSelector
 {
       font-size: 30px;
@@ -501,7 +496,6 @@ button .fa {margin-right:3px;}
       width:100%;
       border-width: 0;
       margin:10px 0 0 0;
-      -webkit-appearance: none;
 }
 
 .panel{
