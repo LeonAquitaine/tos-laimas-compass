@@ -9,7 +9,7 @@
 
       <div class="col-md-6">
 
-        <div class="panel panel-default" ng-if="data.event">
+        <div class="panel panel-default board" ng-if="data.event">
           <div class="panel-heading">
             <h4 class="hilight"><span class='faded'>{{data.event.MapData.QuestLevel}} · </span>{{data.mapHash[data.event.MapData.ClassID].Description}}</h4>
           </div>
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div class="panel panel-default" ng-if='route'>
+        <div class="panel panel-default board" ng-if='route'>
           <div class="panel-heading">
             <div class="float-right"><a href="#" ng-click="delRoute()">Clear</a></div>
 
@@ -48,7 +48,7 @@
 
       </div>
       <div class="col-md-6">
-        <div class="panel panel-default travel-log">
+        <div class="panel panel-default board travel-log">
           <div class="panel-heading">
             <div class="float-right"><label class='mini'>Show Undiscovered Places</label><input type="checkbox" ng-model="showAll"></div>
             <h4 class="hilight">Travel Log</h4>

@@ -555,8 +555,7 @@ button .fa {margin-right:3px;}
   margin-top:0;
 }
  
-
-.panel-body {
+.panel.board .panel-body {
   background-image:
       url("/res/img/b-body-tl.png"),
       url("/res/img/b-body-tr.png"),
@@ -592,9 +591,128 @@ button .fa {margin-right:3px;}
   border-radius:20px;
 }
 
+.panel.monologue  {
+  background-image:
+      url("/res/img/diag-tl.png"),
+      url("/res/img/diag-tr.png"),
+      url("/res/img/diag-br.png"),
+      url("/res/img/diag-bl.png"),
+      url("/res/img/diag-t.png"),
+      url("/res/img/diag-b.png"),
+      url("/res/img/diag-l.png"),
+      url("/res/img/diag-r.png"),
+      url("/res/img/diag-bg.png");
+  background-position:
+      top left,
+      top right,
+      bottom right,
+      bottom left,
+      center top,
+      center bottom,
+      left center,
+      right center,
+      center center;
+  background-repeat:
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      repeat-x, 
+      repeat-x, 
+      repeat-y, 
+      repeat-y, 
+      repeat;
+  margin:15px;
+  padding:25px;
+  border-radius:20px;
+  border-width: 0;
+  position:relative;
+}
+
+.panel.monologue .panel-heading
+{
+  position:absolute;
+  background-image:      url("/res/img/diag-hbg.png");
+    background-repeat: repeat-x;
+    height:46px;
+    top:-18px;
+    left:65px;
+}
+
+.panel.monologue .panel-heading .title{
+   text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+   color:#f1e28d;
+  font-weight: bold;
+  font-size:16px;
+  padding-top:9px;
+}
+
+.panel.monologue .panel-body
+{
+  color: #594638;
+  font-weight: bold;
+}
+
+.laima-bg{
+content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("/res/img/laima.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    }
+
+.bottom
+{
+  position:absolute;
+  width:100%;
+  bottom:0;
+}
 
 
-.panel{
+.panel.monologue .panel-heading .title::before
+{
+  content: "";
+	position: absolute;
+  width:39px;
+  height:46px;
+  top:0px;
+  left:-38px;
+  display: block;
+  background-image:
+      url("/res/img/diag-hl.png");
+  background-position:
+      center bottom;
+  background-repeat:
+      no-repeat; 
+}
+
+.panel.monologue .panel-heading .title::after
+{
+  content: "";
+	position: absolute;
+  width:39px;
+  height:46px;
+  top:0px;
+  right:-36px;
+  display: block;
+  background-image:
+      url("/res/img/diag-hr.png");
+  background-position:
+      center bottom;
+  background-repeat:
+      no-repeat; 
+}
+
+
+
+
+.panel.board{
   position:relative;
   border-width: 0;
   margin-top:48px;
@@ -615,7 +733,7 @@ button .fa {margin-right:3px;}
       auto auto;
 }
 
-.panel::before
+.panel.board::before
 {
   content: "";
 	position: absolute;

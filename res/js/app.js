@@ -16,6 +16,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('config', {
             url: '/config',
             templateUrl: '/res/scope/config/view.html'
+        })
+        .state('advice', {
+            url: '/advice',
+            templateUrl: '/res/scope/advice/view.html'
         });
 });
 
