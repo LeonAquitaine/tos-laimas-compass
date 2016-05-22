@@ -7,15 +7,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('log', {
             url: '/log',
-            templateUrl: '/res/scope/log/view.html'
+            templateUrl: 'res/scope/log/view.html'
         })
         .state('chars', {
             url: '/chars',
-            templateUrl: '/res/scope/chars/view.html'
+            templateUrl: 'res/scope/chars/view.html'
         })
         .state('config', {
             url: '/config',
-            templateUrl: '/res/scope/config/view.html'
+            templateUrl: 'res/scope/config/view.html'
         })
         .state('route', {
             url: '/route/:from/:to',
@@ -23,11 +23,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 from: "1001", // Klaipeda
                 to: "1006" // Orsha
             },
-            templateUrl: '/res/scope/route/view.html'
+            templateUrl: 'res/scope/route/view.html'
         })
         .state('advice', {
             url: '/advice',
-            templateUrl: '/res/scope/advice/view.html'
+            templateUrl: 'res/scope/advice/view.html'
         });
 });
 
