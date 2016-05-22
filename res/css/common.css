@@ -25,7 +25,7 @@ a {text-decoration:none;}
 html {min-height: 100%; font-family:quattrocento;
   -ms-text-size-adjust:100%;
   -webkit-text-size-adjust:100%; color:#fff;
-  background-image:url("/res/img/background.jpg");
+  background-image:url("../../res/img/background.jpg");
   background-size: 100%;}
 div, button, textarea, input, select, a {font-family: quattrocento;}
 b {font-family: quattrocento; font-weight:bold;}
@@ -72,13 +72,13 @@ body {min-height: 100%; margin:0px; padding:0px;
 			.login {float:right; width:85px; height:24px; margin-right:100px; background-image:url('/res/img/login_web.png'); cursor:pointer;}
 
 	.header-wrapper {position:relative; float:left; clear:both; width: 100%; height: 49px;
-    		background-image:url("/res/img/menu_back.png"); background-size: 100% 100%;}
+    		background-image:url("../../res/img/menu_back.png"); background-size: 100% 100%;}
 		.header-logo {float:left; font-family:quattrocento; font-size:32px; padding-top:11px;}
 			.header-logo > a {color:#fff;}
 				.header-logo > a > img{margin-top: -110px; margin-left:-110px; width:360px;}
     .header-navigator {}
 			.menuItem {position: relative; float:left; top:12px;height:34px}
-			.menuItem:hover {background-image:url("/res/img/menu_on_effect.png"); background-size: 100% 100%;background-position:0 0 }
+			.menuItem:hover {background-image:url("../../res/img/menu_on_effect.png"); background-size: 100% 100%;background-position:0 0 }
 			.menuBar {position: relative; float:left; top: 18px; margin:0 2.44140625%;}
 
   .smallnavi-wrapper {display:none; width:100%; height:159px; margin-top:-40px;}
@@ -96,7 +96,7 @@ body {min-height: 100%; margin:0px; padding:0px;
 					
 			.pageTitle {width:100%; font-size:34px; text-align: center; margin-bottom:18px;}
 			.pageTitleBar {width:100%; height:24px;text-align: center; margin-bottom:36px;
-        					background:url("/res/img/pattern.png") no-repeat center;}
+        					background:url("../../res/img/pattern.png") no-repeat center;}
 
 		.sideBar {position: relative; float:left; clear:both; padding-top:50px;width:100%;max-width:1024px;}
 			.sideBarItem {position: relative; float:left; width:24.51171875%; height:251px; text-align:center; margin-right:3.325625%; overflow:hidden;}
@@ -143,7 +143,7 @@ body {min-height: 100%; margin:0px; padding:0px;
     .footerCompany{font-size:14px; font-family:arial;}
 		  .footerCompany > a {color:#fff; font-family:arial;}
 
-  .topButton-wrapper {display:none; opacity:.8;position:fixed; bottom:10px; right:10px; width:42px; height:42px; background-image:url("/res/img/top_icon.png"); background-size: 100% 100%;}
+  .topButton-wrapper {display:none; opacity:.8;position:fixed; bottom:10px; right:10px; width:42px; height:42px; background-image:url("../../res/img/top_icon.png"); background-size: 100% 100%;}
 
 
 .loginContent {display:block; -webkit-animation:slidein 0.3s; animation:slidein 0.3s; width:245px; height:268px; overflow-y:auto; margin:0 auto;
@@ -201,7 +201,7 @@ body {min-height: 100%; margin:0px; padding:0px;
   .header-navigator {display:table; margin:0 auto; z-index:2;}
   .menuBar {position: relative; float:left; top: 18px; margin:0 25px;}
     .menuItem {display:table-cell; z-index:2;height:36px;}
-    .menuItem:hover {background-image:url("/res/img/menu_on_effect.png"); background-size: 100% 100%;}
+    .menuItem:hover {background-image:url("../../res/img/menu_on_effect.png"); background-size: 100% 100%;}
   .content-wrapper {margin-top:19px;}
     .content {width:100%;}
     .sideBar {width:100%;/* left:50%; margin-left:-380px; */padding-top:19px;}
@@ -357,7 +357,7 @@ button .fa {margin-right:3px;}
 
 .mapmarker
 {
-  background-image:url("/res/img/mapmarker.png");
+  background-image:url("../../res/img/mapmarker.png");
   background-size: 100%;
   display:inline-block;
   width:16px;
@@ -387,7 +387,7 @@ button .fa {margin-right:3px;}
   
 .route
 {
-  background-image:url("/res/img/route.png");
+  background-image:url("../../res/img/route.png");
   background-size: 100%;
   display:inline-block;
   width:12px;
@@ -581,15 +581,15 @@ padding:0 10px;
  
 .panel.board .panel-body {
   background-image:
-      url("/res/img/b-body-tl.png"),
-      url("/res/img/b-body-tr.png"),
-      url("/res/img/b-body-br.png"),
-      url("/res/img/b-body-bl.png"),
-      url("/res/img/b-body-t.png"),
-      url("/res/img/b-body-b.png"),
-      url("/res/img/b-body-l.png"),
-      url("/res/img/b-body-r.png"),
-      url("/res/img/b-body-bg.png");
+      url("../../res/img/b-body-tl.png"),
+      url("../../res/img/b-body-tr.png"),
+      url("../../res/img/b-body-br.png"),
+      url("../../res/img/b-body-bl.png"),
+      url("../../res/img/b-body-t.png"),
+      url("../../res/img/b-body-b.png"),
+      url("../../res/img/b-body-l.png"),
+      url("../../res/img/b-body-r.png"),
+      url("../../res/img/b-body-bg.png");
   background-position:
       top left,
       top right,
@@ -617,15 +617,15 @@ padding:0 10px;
 
 .panel.monologue  {
   background-image:
-      url("/res/img/diag-tl.png"),
-      url("/res/img/diag-tr.png"),
-      url("/res/img/diag-br.png"),
-      url("/res/img/diag-bl.png"),
-      url("/res/img/diag-t.png"),
-      url("/res/img/diag-b.png"),
-      url("/res/img/diag-l.png"),
-      url("/res/img/diag-r.png"),
-      url("/res/img/diag-bg.png");
+      url("../../res/img/diag-tl.png"),
+      url("../../res/img/diag-tr.png"),
+      url("../../res/img/diag-br.png"),
+      url("../../res/img/diag-bl.png"),
+      url("../../res/img/diag-t.png"),
+      url("../../res/img/diag-b.png"),
+      url("../../res/img/diag-l.png"),
+      url("../../res/img/diag-r.png"),
+      url("../../res/img/diag-bg.png");
   background-position:
       top left,
       top right,
@@ -658,7 +658,7 @@ padding:0 10px;
 .panel.monologue .panel-heading
 {
   position:absolute;
-  background-image:      url("/res/img/diag-hbg.png");
+  background-image:      url("../../res/img/diag-hbg.png");
     background-repeat: repeat-x;
     height:46px;
     top:-19px;
@@ -683,7 +683,7 @@ padding:0 10px;
   left:-38px;
   display: block;
   background-image:
-      url("/res/img/diag-hl.png");
+      url("../../res/img/diag-hl.png");
   background-position:
       center bottom;
   background-repeat:
@@ -700,7 +700,7 @@ padding:0 10px;
   right:-36px;
   display: block;
   background-image:
-      url("/res/img/diag-hr.png");
+      url("../../res/img/diag-hr.png");
   background-position:
       center bottom;
   background-repeat:
@@ -709,15 +709,15 @@ padding:0 10px;
 
 .panel.leather  {
   background-image:
-      url("/res/img/leather-tl.png"),
-      url("/res/img/leather-tr.png"),
-      url("/res/img/leather-br.png"),
-      url("/res/img/leather-bl.png"),
-      url("/res/img/leather-t.png"),
-      url("/res/img/leather-b.png"),
-      url("/res/img/leather-l.png"),
-      url("/res/img/leather-r.png"),
-      url("/res/img/leather-bg.png");
+      url("../../res/img/leather-tl.png"),
+      url("../../res/img/leather-tr.png"),
+      url("../../res/img/leather-br.png"),
+      url("../../res/img/leather-bl.png"),
+      url("../../res/img/leather-t.png"),
+      url("../../res/img/leather-b.png"),
+      url("../../res/img/leather-l.png"),
+      url("../../res/img/leather-r.png"),
+      url("../../res/img/leather-bg.png");
   background-position:
       top left,
       top right,
@@ -750,7 +750,7 @@ padding:0 10px;
 .panel.leather .panel-heading
 {
   position:absolute;
-  background-image:      url("/res/img/diag-hbg.png");
+  background-image:      url("../../res/img/diag-hbg.png");
     background-repeat: repeat-x;
     height:46px;
     top:-19px;
@@ -776,7 +776,7 @@ padding:0 10px;
   left:-38px;
   display: block;
   background-image:
-      url("/res/img/diag-hl.png");
+      url("../../res/img/diag-hl.png");
   background-position:
       center bottom;
   background-repeat:
@@ -793,7 +793,7 @@ padding:0 10px;
   right:-36px;
   display: block;
   background-image:
-      url("/res/img/diag-hr.png");
+      url("../../res/img/diag-hr.png");
   background-position:
       center bottom;
   background-repeat:
@@ -817,7 +817,7 @@ content: "";
     display: block;
     width: 100%;
     height: 100%;
-    background-image: url("/res/img/laima.png");
+    background-image: url("../../res/img/laima.png");
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: contain;
@@ -846,8 +846,8 @@ content: "";
   border:2px solid black;
   
   background-image:
-      url("/res/img/bg-hoz-bar.png"),
-      url("/res/img/bg-bg.png");
+      url("../../res/img/bg-hoz-bar.png"),
+      url("../../res/img/bg-bg.png");
   background-position:
       center bottom,
       center center;
@@ -869,9 +869,9 @@ content: "";
   right:0;
   display: block;
   background-image:
-      url("/res/img/bg-crest-l.png"), 
-      url("/res/img/bg-crest-r.png"),
-      url("/res/img/bg-hoz-bar.png");
+      url("../../res/img/bg-crest-l.png"), 
+      url("../../res/img/bg-crest-r.png"),
+      url("../../res/img/bg-hoz-bar.png");
   background-position:
       left top,
       right top,
@@ -1024,13 +1024,13 @@ body { padding-top: 70px; }
   vertical-align: bottom;
 }
 
-.gameicon.gi-warp {  background-image:url("/res/img/icon_item_JOB_2_SADHU4_ITEM.png");}
-.gameicon.gi-compass {  background-image:url("/res/img/icon_item_artefact_210017.png");}
-.gameicon.gi-backpack {  background-image:url("/res/img/icon_item_sidebag.png");}
+.gameicon.gi-warp {  background-image:url("../../res/img/icon_item_JOB_2_SADHU4_ITEM.png");}
+.gameicon.gi-compass {  background-image:url("../../res/img/icon_item_artefact_210017.png");}
+.gameicon.gi-backpack {  background-image:url("../../res/img/icon_item_sidebag.png");}
 
-.gameicon.gi-mt-Field {  background-image:url("/res/img/map-fld.png");}
-.gameicon.gi-mt-Dungeon {  background-image:url("/res/img/map-dun.png");}
-.gameicon.gi-mt-City {  background-image:url("/res/img/map-cit.png");}
+.gameicon.gi-mt-Field {  background-image:url("../../res/img/map-fld.png");}
+.gameicon.gi-mt-Dungeon {  background-image:url("../../res/img/map-dun.png");}
+.gameicon.gi-mt-City {  background-image:url("../../res/img/map-cit.png");}
 
 .form-group:first-of-type {
     margin-top:15px;
@@ -1064,7 +1064,7 @@ body { padding-top: 70px; }
   width:100%;
   height:1px;
   background-image:
-      url("/res/img/gold-sep.png");
+      url("../../res/img/gold-sep.png");
   background-repeat:
       no-repeat;
   background-size: 
