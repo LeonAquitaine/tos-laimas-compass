@@ -48,7 +48,7 @@ app.service('dataService', function ($rootScope, $http) {
         serv.mobs = data;
     };
 
-    if (io) {
+    if (typeof io !== "undefined") {
         var socket = io();
         socket.on('settings', function (data) {
             console.log('data:settings');
