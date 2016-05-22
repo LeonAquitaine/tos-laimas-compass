@@ -28,7 +28,6 @@ app.service('dataService', function ($rootScope, $http) {
 
         serv.orderedMaps = orderedMaps;
 
-
         // Prepare node list for route resolution
 
         var nodes = {};
