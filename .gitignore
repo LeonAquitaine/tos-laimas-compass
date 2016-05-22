@@ -1,3 +1,4 @@
 /node_modules
 /dist
+/etc
 assets/data/tracker.json

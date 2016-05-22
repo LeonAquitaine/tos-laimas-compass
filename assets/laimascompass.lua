@@ -37,11 +37,12 @@ function MOD_LAIMAS_COMPASS_MON_DEAD_CLIENT(actor)
 		local killsRequired = GetClass('Journal_monkill_reward', monCls.Journal).Count1;
 
 		local mapClassName = session.GetMapName();
-    	local mapIES = GetClass('Map', mapClassName)
+		local mapCls = GetClass("Map", mapClassName);
+		local mapId = mapCls.ClassID;
 
 		local modHeader = GETMYPCNAME() .. "|" .. GETMYFAMILYNAME() .. "|" ..GETMYPCLEVEL();
 		
-		MOD_DUMP_DATALINE("KILL|" .. modHeader .. "|" .. mapClassName .. "|" .. monID .. "|" .. killCount .. "|" .. killsRequired);
+		MOD_DUMP_DATALINE("KILL|" .. modHeader .. "|" .. mapId .. "|" .. monID .. "|" .. killCount .. "|" .. killsRequired);
 	end
 end
 
@@ -58,6 +59,9 @@ end
 function DUMP_MAP_DATA(frame)
 
 	local mapClassName = session.GetMapName();
+	local mapCls = GetClass("Map", mapClassName);
+	local mapId = mapCls.ClassID;
+	
 	local modHeader = GETMYPCNAME() .. "|" .. GETMYFAMILYNAME() .. "|" ..GETMYPCLEVEL();
 	local list = session.GetMapFogList(mapClassName);
 	local cnt = list:Count();
@@ -74,7 +78,7 @@ function DUMP_MAP_DATA(frame)
 	
 	frame:Invalidate();
 	
-	MOD_DUMP_DATALINE("MAP|" .. modHeader .. "|" .. mapClassName .. "|" .. revealed .. "|" .. cnt);
+	MOD_DUMP_DATALINE("MAP|" .. modHeader .. "|" .. mapId .. "|" .. revealed .. "|" .. cnt);
 	
 end
 

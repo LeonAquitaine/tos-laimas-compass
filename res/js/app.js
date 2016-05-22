@@ -17,6 +17,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/config',
             templateUrl: '/res/scope/config/view.html'
         })
+        .state('route', {
+            url: '/route/:from/:to',
+            params: {
+                from: "1001", // Klaipeda
+                to: "1006" // Orsha
+            },
+            templateUrl: '/res/scope/route/view.html'
+        })
         .state('advice', {
             url: '/advice',
             templateUrl: '/res/scope/advice/view.html'
@@ -35,6 +43,21 @@ app.filter('toDictionaryArray', function () {
     }
 });
 
-var remote = require('remote');
-var dialog = remote.require('dialog');
-var appConfig = remote.require('./assets/js/appConfig.js');
+// http://stackoverflow.com/a/13782311/1845714
+
+app.directive('backImg', function () {
+    return function (scope, element, attrs) {
+        var url = attrs.backImg;
+        element.css({
+            'background-image': 'url(' + url + ')',
+            'background-size': 'cover'
+        });
+    };
+})
+
+
+if(!( typeof require === 'undefined' || require === null )){
+    var remote = require('remote');
+    var dialog = remote.require('dialog');
+    var appConfig = remote.require('./assets/js/appConfig.js');
+}

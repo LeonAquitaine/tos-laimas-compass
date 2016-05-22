@@ -1,84 +1,69 @@
-  <div ng-controller="logController" class="container-fluid">
-    <div class='charSelector-container'>
-      <select ng-model="data.selectedCharacter" class='charSelector'>
+<div ng-controller="logController" class="container-fluid">
+  <div class='charSelector-container'>
+    <select ng-model="data.selectedCharacter" class='charSelector'>
         <option ng-repeat='(k,v) in data.trackedCharacters' value="{{k}}">{{k}} · Lv.{{v.Level}}</option>
-        </select>
-    </div>
+    </select>
+  </div>
 
-    <div class="row">
+  <div class="row">
 
-      <div class="col-md-6">
+    <div class="col-md-6 p0">
 
-        <div class="panel panel-default board" ng-if="data.event">
-          <div class="panel-heading">
-            <h4 class="hilight"><span class='faded'>{{data.event.MapData.QuestLevel}} · </span>{{data.mapHash[data.event.MapData.ClassID].Description}}</h4>
+      <div class="panel panel-default leather" ng-if="data.event">
+        <div class="panel-heading">
+          <h4 class="hilight title"><span class='faded'>{{data.maps[data.event.Map].QuestLevel}} · </span>{{data.maps[data.event.Map].Name}}</h4>
+        </div>
+
+        <div class="panel-body">
+          <div class="mini-card" ng-repeat='(k,v) in data.event.Data' ng-class='{"active": data.event.EventSource === k, "completed": v.Completed}'}'>
+            <div class="icon" back-img="/res/img/{{k !== 'Exploration' ? 'mon/mon_' + data.mobs[k].Icon: 'SiaulMapIncomplete'}}.png"></div>
+            <div class='name'>{{data.mobs[k] ? data.mobs[k].Name : 'Exploration'}}</div>
+            <div class='bubble' ng-if='data.mobs[k]'>{{data.mobs[k].Level}}</div>
+
+            <div class="bar" ng-class='{"completed": v.Completed}'>
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{ v.Completed ? 100 : (v.Current / v.Total) * 100}}%">
+                &nbsp;
+              </div>
+            </div>
+
+            <div class='stats'>{{v.Current}}/{{v.Total}}</div>
+            <div class='perc'>{{v.Current / v.Total * 100 | number:2}}%</div>
+
           </div>
+        </div>
 
-          <div class="panel-body">
-            <div class="row p-10 p-0" ng-repeat='(k,v) in data.event.Data'>
-              <div class="col-xs-1 faded a-r">{{v.Data.Level ? v.Data.Level : ''}}</div>
-              <div class="col-xs-5 ellipsis" ng-class='{"active": data.event.EventSource === k}'>{{v.Data.Journal ? v.Data.Journal : 'Exploration'}}</div>
-              <div class="col-xs-6 p-rel" ng-class='{"completed": v.Completed}'>
+      </div>
+    </div>
+    <div class="col-md-6 p0">
+      <div class="panel panel-default leather travel-log">
+        <div class="panel-heading">
+          <h4 class="hilight title">Travel Log</h4>
+        </div>
+        <div class="panel-body">
+          <div class="float-right"><label class='mini'>Show Undiscovered Places</label><input type="checkbox" ng-model="showAll"></div>
+        </div>
+        <div class="gold-separator"></div>
+        <div class="panel-body">
 
-                <span class='float-left mini'>{{v.Current}}/{{v.Total}}</span>
-                <span class='float-right mini'>{{v.Current / v.Total * 100 | number:2}}%</span>
-                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{ v.Completed ? 100 : (v.Current / v.Total) * 100}}%">
-                  &nbsp;
+          <div class="content-wrapper">
+            <div class="selectable" ng-repeat="(k,v) in data.orderedMaps" ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassID].mobs.length || showAll">
+
+
+              <div class='col-xs-12 item white'>
+                <span class='faded'>{{v.QuestLevel}}</span> · {{v.Name ? v.Name : v.ClassName }}
+                <div class='float-right'>
+                  <div ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassID].Exploration" class="dib">
+                    <div class="marker" ng-repeat="m in data.trackedCharacters[data.selectedCharacter].map[v.ClassID].mobs" ng-class='{"completed": data.trackedCharacters[data.selectedCharacter].mob[m].Completed, "incomplete": !data.trackedCharacters[data.selectedCharacter].mob[m].Completed }' ng-attr-title='{{data.mobs[m].Name}}'>
+                    </div><div class="marker" ng-class='{"completed": data.trackedCharacters[data.selectedCharacter].map[v.ClassID].Exploration.Completed, "incomplete": !data.trackedCharacters[data.selectedCharacter].map[v.ClassID].Exploration.Completed }'>
+                    </div>
+                  </div>
+                  <span class='dib gameicon gi-compass' ng-click="doRoute(v.ClassID)"></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="panel panel-default board" ng-if='route'>
-          <div class="panel-heading">
-            <div class="float-right"><a href="#" ng-click="delRoute()">Clear</a></div>
-
-            <h4 class="hilight">Route</h4>
-          </div>
-
-          <div class="panel-body">
-            <div class="row" ng-repeat="i in route">
-              <div class='col-xs-2 item white'>{{data.mapHash[i].QuestLevel}}</div>
-              <div class='col-xs-10 ellipsis item'>
-                {{data.mapHash[i].Description}}</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-md-6">
-        <div class="panel panel-default board travel-log">
-          <div class="panel-heading">
-            <div class="float-right"><label class='mini'>Show Undiscovered Places</label><input type="checkbox" ng-model="showAll"></div>
-            <h4 class="hilight">Travel Log</h4>
-          </div>
-
-          <div class="panel-body">
-            <div class="content-wrapper">
-              <div class="row selectable" ng-repeat="(k,v) in data.mapOrderedHashList" ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassName].mobs.length || showAll">
-
-
-                <div class='col-xs-2 item white'>{{data.mapHash[v.ClassID].QuestLevel}}</div>
-                <div class='col-xs-10 ellipsis item'>
-                  <div class='float-right'>
-                    <a ng-click='calcRoute(v.ClassID)'><span class='route'></span></a>
-                  </div>
-                  <div class='float-right'>
-                    <div ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassName].Exploration">
-                      <span ng-repeat="m in data.trackedCharacters[data.selectedCharacter].map[v.ClassName].mobs" class="marker" ng-class="{'wip': !data.trackedCharacters[data.selectedCharacter].mob[m].Completed, 'checkmark': data.trackedCharacters[data.selectedCharacter].mob[m].Completed}"></span>
-                      <!--
-                 --><span ng-if="!data.trackedCharacters[data.selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker wip"></span>
-                      <!--
-                 --><span ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassName].Exploration.Completed" class="marker checkmark"></span>
-                    </div>
-                  </div>
-                  {{data.mapHash[v.ClassID].Description}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-
   </div>
+</div>

@@ -23,3 +23,5 @@ DEL ".\tos-laimas-compass-win32-x64\resources\app\*.map" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.iml" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.ipr" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.iws" /f /s
+
+RMDIR "tos-laimas-compass-win32-x64\resources\app\assets\data\src" /S /Q

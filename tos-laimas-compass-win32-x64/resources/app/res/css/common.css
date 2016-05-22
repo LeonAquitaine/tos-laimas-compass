@@ -31,7 +31,7 @@ div, button, textarea, input, select, a {font-family: quattrocento;}
 b {font-family: quattrocento; font-weight:bold;}
 body {min-height: 100%; margin:0px; padding:0px;
   -webkit-text-size-adjust: none;
-  background: url("/res/img/footer_back.png");
+  background-color: transparent;
   background-position: bottom;
   background-repeat: repeat-x, repeat-x;}
 .wordbreak {white-space: pre-wrap;
@@ -349,8 +349,9 @@ button .fa {margin-right:3px;}
     font-weight: bold;
 }
 
-.hilight, .active
+.hilight, .active, .item:hover
 {
+    color:#FFFFC0;
    text-shadow: 0px 0px 8px rgba(128, 203, 255, 1);
 }
 
@@ -473,11 +474,11 @@ button .fa {margin-right:3px;}
     padding: 3px 6px;
 }
 
-.progress-bar{
+.progress-bar, .marker.incomplete{
   background-color: #ae5a00;
 }
 
-.completed > .progress-bar
+.completed > .progress-bar, .marker.completed
 {
   background-color: #22a060;
 }
@@ -487,15 +488,20 @@ button .fa {margin-right:3px;}
   text-align: right;
 }
 
-.charSelector-container .charSelector
-{
-      font-size: 30px;
+select, select.form-control {
       color: #c0e0ff;
       text-shadow: 0px 0px 8px rgba(128, 203, 255, 1);
       background: transparent;
       width:100%;
       border-width: 0;
-      margin:10px 0 0 0;
+      
+      background-color:#234;
+}
+
+.charSelector-container select.charSelector
+{
+      font-size: 30px;
+      margin:15px 0 15px 0;
 }
 
 .panel{
@@ -533,7 +539,25 @@ button .fa {margin-right:3px;}
 .travel-log .item
 {
   font-family:robotolight;
-  font-size:85%;
+  line-height: 2;
+  
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+100&0.58+0,0+100 */
+border-radius: 4px;
+padding:0 10px;
+}
+
+.travel-log .item:hover
+{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+100&0.58+0,0+100 */
+border-radius: 4px;
+padding:0 10px;
+}
+
+.travel-log .selectable + .selectable .item
+{
+  
+  margin-top:4px;
+  
 }
 
 .white{
@@ -625,8 +649,10 @@ button .fa {margin-right:3px;}
   margin:15px;
   padding:25px;
   border-radius:20px;
-  border-width: 0;
+  border:1px solid black;
   position:relative;
+    box-shadow: 0px 0px 3px 3px rgba(0,0,0,.5);
+
 }
 
 .panel.monologue .panel-heading
@@ -635,7 +661,7 @@ button .fa {margin-right:3px;}
   background-image:      url("/res/img/diag-hbg.png");
     background-repeat: repeat-x;
     height:46px;
-    top:-18px;
+    top:-19px;
     left:65px;
 }
 
@@ -646,34 +672,6 @@ button .fa {margin-right:3px;}
   font-size:16px;
   padding-top:9px;
 }
-
-.panel.monologue .panel-body
-{
-  color: #594638;
-  font-weight: bold;
-}
-
-.laima-bg{
-content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-image: url("/res/img/laima.png");
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-size: contain;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    }
-
-.bottom
-{
-  position:absolute;
-  width:100%;
-  bottom:0;
-}
-
 
 .panel.monologue .panel-heading .title::before
 {
@@ -708,6 +706,134 @@ content: "";
   background-repeat:
       no-repeat; 
 }
+
+.panel.leather  {
+  background-image:
+      url("/res/img/leather-tl.png"),
+      url("/res/img/leather-tr.png"),
+      url("/res/img/leather-br.png"),
+      url("/res/img/leather-bl.png"),
+      url("/res/img/leather-t.png"),
+      url("/res/img/leather-b.png"),
+      url("/res/img/leather-l.png"),
+      url("/res/img/leather-r.png"),
+      url("/res/img/leather-bg.png");
+  background-position:
+      top left,
+      top right,
+      bottom right,
+      bottom left,
+      center top,
+      center bottom,
+      left center,
+      right center,
+      center center;
+  background-repeat:
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      no-repeat,
+      repeat-x, 
+      repeat-x, 
+      repeat-y, 
+      repeat-y, 
+      repeat;
+  margin:15px;
+  margin-top:30px;
+  padding:25px;
+  border-radius:20px;
+  border:1px solid black;
+  position:relative;
+    box-shadow: 0px 0px 3px 3px rgba(0,0,0,.5);
+}
+
+.panel.leather .panel-heading
+{
+  position:absolute;
+  background-image:      url("/res/img/diag-hbg.png");
+    background-repeat: repeat-x;
+    height:46px;
+    top:-19px;
+    left:65px;
+}
+
+.panel.leather .panel-heading .title{
+   text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+   color:#f1e28d;
+  font-weight: bold;
+  font-size:16px;
+  padding-top:9px;
+  margin:4px;
+}
+
+.panel.leather .panel-heading .title::before
+{
+  content: "";
+	position: absolute;
+  width:39px;
+  height:46px;
+  top:0px;
+  left:-38px;
+  display: block;
+  background-image:
+      url("/res/img/diag-hl.png");
+  background-position:
+      center bottom;
+  background-repeat:
+      no-repeat; 
+}
+
+.panel.leather .panel-heading .title::after
+{
+  content: "";
+	position: absolute;
+  width:39px;
+  height:46px;
+  top:0px;
+  right:-36px;
+  display: block;
+  background-image:
+      url("/res/img/diag-hr.png");
+  background-position:
+      center bottom;
+  background-repeat:
+      no-repeat; 
+}
+
+
+.panel.leather .panel-body
+{
+  padding:0;
+}
+
+.panel.monologue .panel-body
+{
+  color: #594638;
+  font-weight: bold;
+}
+
+.laima-bg{
+content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("/res/img/laima.png");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    }
+
+.bottom
+{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
 
 
 
@@ -763,7 +889,11 @@ content: "";
 .marker
 {
   display: inline-block;
-  border:1px solid #544833;
+  width:9px;
+  height:9px;
+  border:1px solid black;
+  border-radius: 50%;
+  margin-bottom:5px;
 }
 
 .panel-heading .float-right 
@@ -852,3 +982,212 @@ content: "";
 }
 
 body { padding-top: 70px; }
+
+.lh1
+{
+  line-height: 1;
+}
+
+.mobIcon
+{
+  
+  
+    font-size: 120px;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    display:block;
+    border-radius: 50%;
+}
+
+.f-r
+{
+  float:right;
+}
+
+.lh1 h5
+{
+    padding: 2px 0 0 0;
+    margin: 0;
+    font-size: 100%;
+}
+
+.gameicon
+{
+  display:inline-block;
+  width:20px;
+  height: 20px;
+  background-size: contain;
+  border-radius: 50%; 
+  background-color: #57351c;
+  border: 1px solid #24160c;
+  vertical-align: bottom;
+}
+
+.gameicon.gi-warp {  background-image:url("/res/img/icon_item_JOB_2_SADHU4_ITEM.png");}
+.gameicon.gi-compass {  background-image:url("/res/img/icon_item_artefact_210017.png");}
+.gameicon.gi-backpack {  background-image:url("/res/img/icon_item_sidebag.png");}
+
+.gameicon.gi-mt-Field {  background-image:url("/res/img/map-fld.png");}
+.gameicon.gi-mt-Dungeon {  background-image:url("/res/img/map-dun.png");}
+.gameicon.gi-mt-City {  background-image:url("/res/img/map-cit.png");}
+
+.form-group:first-of-type {
+    margin-top:15px;
+}
+
+.content-wrapper
+{
+  margin-top: 0;
+}
+
+.container{
+  width:100%;
+}
+.dib
+{
+  display: inline-block;
+}
+
+.selectable .float-right
+{
+  line-height: 0;
+    padding-top: 3px;
+}
+
+.panel-body + .panel-body
+{
+  margin-top:15px;
+} 
+
+.gold-separator{
+  width:100%;
+  height:1px;
+  background-image:
+      url("/res/img/gold-sep.png");
+  background-repeat:
+      no-repeat;
+  background-size: 
+      100% 1px; 
+  display:block;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+.p0{
+  padding:0 !important;
+}
+
+input[type=checkbox]{
+  vertical-align: sub;
+}
+
+.panel.leather .panel-heading + .panel-body
+{
+  padding-top:15px;
+}
+
+.mini-card
+{
+  display:inline-block;
+  width:96px;
+  height:136px;
+  border: 4px solid black;
+  border-radius: 8px;
+  margin:3px;
+  position: relative;
+  box-sizing: content-box;
+  background-color:#123;
+}
+
+.mini-card > .icon{
+  content: "";
+  width:96px;
+  height:96px;
+}
+
+.mini-card > .bubble{
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    background-color: #345;
+    border-radius: 50%;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border: 3px solid black;
+    box-sizing: content-box;
+    text-align: center;
+    line-height: 1.9;
+    }
+    
+
+.mini-card > .stats
+{
+    position: absolute;
+    bottom: 1px;
+    left: 3px;
+    font-size: 10px;
+    text-shadow: 0 0 1px black;
+    font-weight: bold;
+    color: white;
+    }
+
+.mini-card > .perc
+{
+    position: absolute;
+    bottom: 1px;
+    right: 3px;
+    font-size: 10px;
+    text-shadow: 0 0 1px black;
+    font-weight: bold;
+    color: white;
+    }
+    
+.mini-card .name
+{
+  position:absolute;
+  top:96px;
+  background-color:black;
+  left:0;
+  right:0;
+  padding:0 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color:white;
+}
+
+
+.mini-card > .bar{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.mini-card > div > .progress-bar
+{
+    border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+}
+
+.mini-card.completed
+{
+  box-shadow: 0 0 8px rgba(128, 203, 255, 1);
+}
+
+
+@media screen and (max-width:512px) {
+  
+
+  .item{font-size:11px;}
+
+  .travel-log .selectable + .selectable .item {
+      margin-top: 1px;
+  }
+
+}
+

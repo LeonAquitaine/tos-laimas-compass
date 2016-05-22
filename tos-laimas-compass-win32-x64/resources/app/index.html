@@ -15,6 +15,7 @@
 
   <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="/res/css/common.css" rel="stylesheet">
+  <link href="/res/css/circle.css" rel="stylesheet">
   <link href="/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <script src="/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/node_modules/angular/angular.min.js"></script>
@@ -27,6 +28,8 @@
   <script src="/res/scope/chars/controller.js"></script>
   <script src="/res/scope/config/controller.js"></script>
   <script src="/res/scope/log/controller.js"></script>
+  <script src="/res/scope/advice/controller.js"></script>
+  <script src="/res/scope/route/controller.js"></script>
 
 </head>
 
@@ -36,10 +39,11 @@
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <ul class="nav navbar-nav navbar-right">
-        <li ui-sref-active="active"><a href="#/advice" ui-sref="advice"><i class="fa fa-map-o" aria-hidden="true"></i> Laima's Advice</a></li>
-        <li ui-sref-active="active"><a href="#/log" ui-sref="log"><i class="fa fa-map-o" aria-hidden="true"></i> Travel Log</a></li>
-        <li ui-sref-active="active"><a href="#/chars" ui-sref="chars"><i class="fa fa-users" aria-hidden="true"></i> Characters</a></li>
-        <li ui-sref-active="active"><a href="#/config" ui-sref="config"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+        <li ui-sref-active="active"><a href="#/advice" ui-sref="advice"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+        <li ui-sref-active="active"><a href="#/log" ui-sref="log"><i class="fa fa-book" aria-hidden="true"></i></a></li>
+        <li ui-sref-active="active"><a href="#/chars" ui-sref="chars"><i class="fa fa-users" aria-hidden="true"></i></a></li>
+        <li ui-sref-active="active"><a href="#/route" ui-sref="route"><i class="fa fa-map" aria-hidden="true"></i></a></li>
+        <li ui-sref-active="active"><a href="#/config" ui-sref="config"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
       </ul>
   </nav>
 

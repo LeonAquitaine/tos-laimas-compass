@@ -43,11 +43,11 @@ function startMonitor() {
                                 ExplorationTotal: Number(dat[6])
                             };
 
-                            if (global.app.maps.maps[event.Map] !== null)
-                                event.MapData = global.app.maps.maps[event.Map];
+                            if (global.app.data.maps[event.Map] !== null)
+                                event.MapData = global.app.data.maps[event.Map];
 
-                            if (global.app.maps.mobs[event.Mob] !== null)
-                                event.MobData = global.app.maps.mobs[event.Mob];
+                            if (global.app.data.mobs[event.Mob] !== null)
+                                event.MobData = global.app.data.mobs[event.Mob];
 
                             if (!global.app.data.tracker)
                                 global.app.data.tracker = {};
@@ -91,9 +91,6 @@ function startMonitor() {
 
                                 if (!global.app.data.tracker[event.Family][event.Character].mob[event.Mob]) {
                                     global.app.data.tracker[event.Family][event.Character].mob[event.Mob] = {};
-
-                                    if (global.app.maps.mobs[event.Mob])
-                                        global.app.data.tracker[event.Family][event.Character].mob[event.Mob].Data = global.app.maps.mobs[event.Mob];
                                 }
 
                                 global.app.data.tracker[event.Family][event.Character].mob[event.Mob].Total = event.ReqKills;
@@ -106,14 +103,13 @@ function startMonitor() {
                                 global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration.Current = event.ExplorationCurrent;
                                 global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration.Completed = event.ExplorationCurrent >= event.ExplorationTotal;
                             }
-
-                            var preEventDump = global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs.map(function (i) {
-                                return global.app.data.tracker[event.Family][event.Character].mob[i];
-                            });
-
+                            
                             var eventDump = {};
 
-                            preEventDump.forEach(function (i) { eventDump[i.Data.ClassID] = i; });
+                            global.app.data.tracker[event.Family][event.Character].map[event.Map].mobs.forEach(function (i) {
+                                var v = global.app.data.tracker[event.Family][event.Character].mob[i];
+                                eventDump[i] = v;
+                            });
 
                             if (global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration)
                                 eventDump.Exploration = global.app.data.tracker[event.Family][event.Character].map[event.Map].Exploration;
@@ -121,7 +117,6 @@ function startMonitor() {
                             dataEvent = {
                                 Character: event.Character + ' ' + event.Family,
                                 Map: event.Map,
-                                MapData: event.MapData,
                                 Data: eventDump,
                                 EventSource: (event.Type === "KILL") ? event.Mob : "Exploration"
                             }
