@@ -1,0 +1,1721 @@
+zones = {
+    map_1021: {
+        id: "map_1021",
+        name: "West Siauliai Woods",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 1,
+        floors: 1,
+        map: "map/westsiliulai.jpg"
+    },
+    map_1001: {
+        id: "map_1001",
+        name: "Klaipeda",
+        area: "Klaipeda Area",
+        type: "City",
+        level: 0,
+        floors: 1,
+        map: "map/klaipeda.jpg"
+    },
+    map_1032: {
+        id: "map_1032",
+        name: "East Siauliai Woods",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 6,
+        floors: 1,
+        map: "map/eastsiliulai.jpg"
+    },
+    map_1041: {
+        id: "map_1041",
+        name: "Miners' Village",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 12,
+        floors: 1,
+        map: "map/minersvillage.jpg"
+    },
+    map_2081: {
+        id: "map_2081",
+        name: "Srautas Canyon",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 26,
+        floors: 1,
+        map: "map/srautascanyon.jpg"
+    },
+    map_2051: {
+        id: "map_2051",
+        name: "Grynas Trails",
+        area: "Kiren Province",
+        type: "Field",
+        level: 336,
+        floors: 1,
+        map: ""
+    },
+    map_2061: {
+        id: "map_2061",
+        name: "Grynas Training Camp",
+        area: "Kiren Province",
+        type: "Field",
+        level: 340,
+        floors: 1,
+        map: ""
+    },
+    map_2071: {
+        id: "map_2071",
+        name: "Grynas Hills",
+        area: "Kiren Province",
+        type: "Field",
+        level: 344,
+        floors: 1,
+        map: ""
+    },
+    map_1180: {
+        id: "map_1180",
+        name: "Gitis Settlement Area",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 69,
+        floors: 1,
+        map: "map/gitissettlementarea.jpg"
+    },
+    map_1051: {
+        id: "map_1051",
+        name: "Crystal Mine",
+        area: "Klaipeda Area",
+        type: "Dungeon",
+        level: 16,
+        floors: 5,
+        map: "map/crystalmine.jpg"
+    },
+    map_2082: {
+        id: "map_2082",
+        name: "Gele Plateau",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 29,
+        floors: 1,
+        map: "map/geleplateau.jpg"
+    },
+    map_2451: {
+        id: "map_2451",
+        name: "Pilgrimage Trail 41_4",
+        area: "Kiren Province",
+        type: "Field",
+        level: 350,
+        floors: 1,
+        map: ""
+    },
+    map_2471: {
+        id: "map_2471",
+        name: "Monastery 41_6",
+        area: "Kiren Province",
+        type: "Field",
+        level: 359,
+        floors: 1,
+        map: ""
+    },
+    map_2461: {
+        id: "map_2461",
+        name: "Pilgrimage Trail 41_5",
+        area: "Kiren Province",
+        type: "Field",
+        level: 356,
+        floors: 1,
+        map: ""
+    },
+    map_3720: {
+        id: "map_3720",
+        name: "Bracken Forest 43_4",
+        area: "Kiren Province",
+        type: "Field",
+        level: 364,
+        floors: 1,
+        map: ""
+    },
+    map_3750: {
+        id: "map_3750",
+        name: "Myrkiti Farm",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 86,
+        floors: 1,
+        map: "map/myrkitifarm.jpg"
+    },
+    map_1176: {
+        id: "map_1176",
+        name: "Baron Allerno",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 84,
+        floors: 1,
+        map: "map/baronallerno.jpg"
+    },
+    map_2088: {
+        id: "map_2088",
+        name: "Veja Ravine",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 46,
+        floors: 1,
+        map: "map/vejaravine.jpg"
+    },
+    map_1081: {
+        id: "map_1081",
+        name: "Katyn Forest",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 106,
+        floors: 1,
+        map: "map/katlynforest.jpg"
+    },
+    map_2083: {
+        id: "map_2083",
+        name: "Nefritas Cliff",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 32,
+        floors: 1,
+        map: "map/nefritascliff.jpg"
+    },
+    map_2421: {
+        id: "map_2421",
+        name: "Pilgrimage Trail 41_1",
+        area: "Kiren Province",
+        type: "Field",
+        level: 343,
+        floors: 1,
+        map: ""
+    },
+    map_2431: {
+        id: "map_2431",
+        name: "Pilgrimage Trail 41_2",
+        area: "Kiren Province",
+        type: "Field",
+        level: 346,
+        floors: 1,
+        map: ""
+    },
+    map_2441: {
+        id: "map_2441",
+        name: "Pilgrimage Trail 41_3",
+        area: "Kiren Province",
+        type: "Field",
+        level: 353,
+        floors: 1,
+        map: ""
+    },
+    map_3690: {
+        id: "map_3690",
+        name: "Bracken Forest 43_1",
+        area: "Kiren Province",
+        type: "Field",
+        level: 355,
+        floors: 1,
+        map: ""
+    },
+    map_3710: {
+        id: "map_3710",
+        name: "Bracken Forest 43_3",
+        area: "Kiren Province",
+        type: "Field",
+        level: 361,
+        floors: 1,
+        map: ""
+    },
+    map_3740: {
+        id: "map_3740",
+        name: "Aqueduct Bridge Area",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 89,
+        floors: 1,
+        map: "map/aqueductarea.jpg"
+    },
+    map_3730: {
+        id: "map_3730",
+        name: "Tenants Farm",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 92,
+        floors: 1,
+        map: "map/tenantsfarm.jpg"
+    },
+    map_2089: {
+        id: "map_2089",
+        name: "Vieta gorge",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 49,
+        floors: 1,
+        map: "map/vietagorge.jpg"
+    },
+    map_1082: {
+        id: "map_1082",
+        name: "Owl Burial Ground",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 109,
+        floors: 1,
+        map: "map/owlburialground.jpg"
+    },
+    map_2084: {
+        id: "map_2084",
+        name: "Tenet Garden",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 35,
+        floors: 1,
+        map: "map/tenetgarden.jpg"
+    },
+    map_2085: {
+        id: "map_2085",
+        name: "Tenet Chapel",
+        area: "Klaipeda Area",
+        type: "Dungeon",
+        level: 40,
+        floors: 3,
+        map: "map/tenetchapl.jpg"
+    },
+    map_3670: {
+        id: "map_3670",
+        name: "Bracken Forest 42_1",
+        area: "Kiren Province",
+        type: "Field",
+        level: 363,
+        floors: 1,
+        map: ""
+    },
+    map_3680: {
+        id: "map_3680",
+        name: "Bracken Forest 42_2",
+        area: "Kiren Province",
+        type: "Field",
+        level: 367,
+        floors: 1,
+        map: ""
+    },
+    map_3700: {
+        id: "map_3700",
+        name: "Bracken Forest 43_2",
+        area: "Kiren Province",
+        type: "Field",
+        level: 358,
+        floors: 1,
+        map: ""
+    },
+    map_3660: {
+        id: "map_3660",
+        name: "Limestone Cave 55-1",
+        area: "Kiren Province",
+        type: "Dungeon",
+        level: 367,
+        floors: 1,
+        map: ""
+    },
+    map_2300: {
+        id: "map_2300",
+        name: "Greene Manor",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 149,
+        floors: 1,
+        map: "map/greenmanor.jpg"
+    },
+    map_3610: {
+        id: "map_3610",
+        name: "Demon Prison District 1",
+        area: "Klaipeda Area",
+        type: "Dungeon",
+        level: 151,
+        floors: 1,
+        map: ""
+    },
+    map_2090: {
+        id: "map_2090",
+        name: "Cobalt Forest",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 52,
+        floors: 1,
+        map: "map/cobalt.jpg"
+    },
+    map_1141: {
+        id: "map_1141",
+        name: "Poslinkis Forest",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 112,
+        floors: 1,
+        map: "map/poslinkisfrst.jpg"
+    },
+    map_1151: {
+        id: "map_1151",
+        name: "Saknis Plains",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 114,
+        floors: 1,
+        map: ""
+    },
+    map_3560: {
+        id: "map_3560",
+        name: "Limestone Cave 52_1",
+        area: "Kiren Province",
+        type: "Dungeon",
+        level: 371,
+        floors: 1,
+        map: ""
+    },
+    map_3550: {
+        id: "map_3550",
+        name: "Coral Plains 44_3",
+        area: "Kiren Province",
+        type: "Field",
+        level: 378,
+        floors: 1,
+        map: ""
+    },
+    map_2301: {
+        id: "map_2301",
+        name: "Shaton Farm",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 152,
+        floors: 1,
+        map: ""
+    },
+    map_1175: {
+        id: "map_1175",
+        name: "Dina Bee Farm",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 160,
+        floors: 1,
+        map: "map/dinabeefarm.jpg"
+    },
+    map_2091: {
+        id: "map_2091",
+        name: "Septyni Glen",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 55,
+        floors: 1,
+        map: "map/septyniglen.jpg"
+    },
+    map_1201: {
+        id: "map_1201",
+        name: "Gate Route",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 58,
+        floors: 1,
+        map: "map/gateroute.jpg"
+    },
+    map_1231: {
+        id: "map_1231",
+        name: "Dvasia Peak",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 120,
+        floors: 1,
+        map: "map/dvasiapeak.jpg"
+    },
+    map_1241: {
+        id: "map_1241",
+        name: "Sunset Flag Forest",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 123,
+        floors: 1,
+        map: "map/sunsetflagforst.jpg"
+    },
+    map_1251: {
+        id: "map_1251",
+        name: "Gateway of Great King",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 58,
+        floors: 1,
+        map: "map/gatewayofgreatking.jpg"
+    },
+    map_1261: {
+        id: "map_1261",
+        name: "Ramstis Ridge",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 61,
+        floors: 1,
+        map: "map/ramstisridge.jpg"
+    },
+    map_3540: {
+        id: "map_3540",
+        name: "Coral Plains 44_2",
+        area: "Kiren Province",
+        type: "Field",
+        level: 381,
+        floors: 1,
+        map: ""
+    },
+    map_3530: {
+        id: "map_3530",
+        name: "Coral Plains 44_1",
+        area: "Kiren Province",
+        type: "Field",
+        level: 385,
+        floors: 1,
+        map: ""
+    },
+    map_2302: {
+        id: "map_2302",
+        name: "Shaton Reservoir",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 155,
+        floors: 1,
+        map: "map/shatonresevior.jpg"
+    },
+    map_1174: {
+        id: "map_1174",
+        name: "Vilna Forest",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 163,
+        floors: 1,
+        map: ""
+    },
+    map_1173: {
+        id: "map_1173",
+        name: "Uskis Arable Land",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 166,
+        floors: 1,
+        map: "map/uskisarable.jpg"
+    },
+    map_1172: {
+        id: "map_1172",
+        name: "Spring Light Woods",
+        area: "Klaipeda Area",
+        type: "Field",
+        level: 169,
+        floors: 1,
+        map: "map/springlightwoods.jpg"
+    },
+    map_1211: {
+        id: "map_1211",
+        name: "Sirdgela Forest",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 61,
+        floors: 1,
+        map: "map/sirdgelafrst.jpg"
+    },
+    map_1221: {
+        id: "map_1221",
+        name: "Kvailas Forest",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 64,
+        floors: 1,
+        map: "map/kvailasfrst.jpg"
+    },
+    map_1271: {
+        id: "map_1271",
+        name: "Overlong Bridge Valley",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 64,
+        floors: 1,
+        map: "map/overlongvalley.jpg"
+    },
+    map_2402: {
+        id: "map_2402",
+        name: "Underground Passage 3",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 0,
+        floors: 1,
+        map: ""
+    },
+    map_3470: {
+        id: "map_3470",
+        name: "Mokusul Chamber",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 188,
+        floors: 1,
+        map: "map/moksulchamber.jpg"
+    },
+    map_2521: {
+        id: "map_2521",
+        name: "Raukime Resorvoir",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 179,
+        floors: 1,
+        map: "map/raukimeresevior.jpg"
+    },
+    map_2511: {
+        id: "map_2511",
+        name: "Glade Slope",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 173,
+        floors: 1,
+        map: "map/gladeslope.jpg"
+    },
+    map_2501: {
+        id: "map_2501",
+        name: "Biltis Forest",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 176,
+        floors: 1,
+        map: "map/biltisforest.jpg"
+    },
+    map_2401: {
+        id: "map_2401",
+        name: "Passage of the Recluse",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 0,
+        floors: 1,
+        map: "map/passage%20of%20the%20recluse.jpg"
+    },
+    map_1281: {
+        id: "map_1281",
+        name: "Akmens Ridge",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 67,
+        floors: 1,
+        map: "map/arkmen.jpg"
+    },
+    map_3450: {
+        id: "map_3450",
+        name: "Monastery 35_4",
+        area: "Romuva Sanctuary",
+        type: "Dungeon",
+        level: 229,
+        floors: 1,
+        map: ""
+    },
+    map_1411: {
+        id: "map_1411",
+        name: "Underground Grave of Ritinis",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 191,
+        floors: 1,
+        map: "map/undergrdgrave.jpg"
+    },
+    map_3460: {
+        id: "map_3460",
+        name: "Bidentis Shrine",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 194,
+        floors: 1,
+        map: ""
+    },
+    map_1391: {
+        id: "map_1391",
+        name: "The place of Balyus' Eternal Sleep",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 197,
+        floors: 1,
+        map: ""
+    },
+    map_2531: {
+        id: "map_2531",
+        name: "Thilla Monastery",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 183,
+        floors: 1,
+        map: ""
+    },
+    map_1291: {
+        id: "map_1291",
+        name: "Tiltas Valley",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 69,
+        floors: 1,
+        map: "map/tiltasvalley.jpg"
+    },
+    map_2541: {
+        id: "map_2541",
+        name: "Canyon Area 36_1",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 227,
+        floors: 1,
+        map: ""
+    },
+    map_3440: {
+        id: "map_3440",
+        name: "Monastery 35_3",
+        area: "Romuva Sanctuary",
+        type: "Dungeon",
+        level: 226,
+        floors: 1,
+        map: ""
+    },
+    map_2581: {
+        id: "map_2581",
+        name: "Istora Ruins",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 176,
+        floors: 1,
+        map: "map/istoraruins.jpg"
+    },
+    map_2571: {
+        id: "map_2571",
+        name: "Namu Temple Ruins",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 172,
+        floors: 1,
+        map: "map/namutemple.jpg"
+    },
+    map_2561: {
+        id: "map_2561",
+        name: "Nuoridin Falls",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 168,
+        floors: 1,
+        map: "map/nuoridenfalls.jpg"
+    },
+    map_1421: {
+        id: "map_1421",
+        name: "Stele Road",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 96,
+        floors: 1,
+        map: "map/stelerd.jpg"
+    },
+    map_1321: {
+        id: "map_1321",
+        name: "Zachariel Crossroad",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 78,
+        floors: 1,
+        map: "map/zacherialcrossrd.jpg"
+    },
+    map_1331: {
+        id: "map_1331",
+        name: "Royal Mausoleum",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 81,
+        floors: 5,
+        map: "map/royalmaus.jpg"
+    },
+    map_1301: {
+        id: "map_1301",
+        name: "Rukas Plateau",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 73,
+        floors: 1,
+        map: "map/rukasplateau.jpg"
+    },
+    map_2551: {
+        id: "map_2551",
+        name: "Pilgrimage Trail 36_2",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 230,
+        floors: 1,
+        map: ""
+    },
+    map_3420: {
+        id: "map_3420",
+        name: "Siauliai 35_1",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 223,
+        floors: 1,
+        map: ""
+    },
+    map_3430: {
+        id: "map_3430",
+        name: "Coral Plains 35_2",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 220,
+        floors: 1,
+        map: ""
+    },
+    map_1431: {
+        id: "map_1431",
+        name: "Ancient Garden of Goddess",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 99,
+        floors: 1,
+        map: "map/goddessgarden.jpg"
+    },
+    map_1441: {
+        id: "map_1441",
+        name: "Escanciu Village",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 103,
+        floors: 1,
+        map: "map/escaniuvillage.jpg"
+    },
+    map_1311: {
+        id: "map_1311",
+        name: "Plateau of Rex",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 76,
+        floors: 1,
+        map: "map/plateurex.jpg"
+    },
+    map_2411: {
+        id: "map_2411",
+        name: "Myurasu passage",
+        area: "Romuva Sanctuary",
+        type: "Dungeon",
+        level: 0,
+        floors: 1,
+        map: ""
+    },
+    map_1531: {
+        id: "map_1531",
+        name: "Pilgrimage Trail 48",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 234,
+        floors: 1,
+        map: ""
+    },
+    map_3350: {
+        id: "map_3350",
+        name: "Coral Plains 32_1",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 216,
+        floors: 1,
+        map: ""
+    },
+    map_1451: {
+        id: "map_1451",
+        name: "Fedimian Suburbs",
+        area: "Fedimian Area",
+        type: "Field",
+        level: 107,
+        floors: 1,
+        map: "map/fedimiansubs.jpg"
+    },
+    map_1461: {
+        id: "map_1461",
+        name: "Mage Tower",
+        area: "Fedimian Area",
+        type: "Dungeon",
+        level: 113,
+        floors: 5,
+        map: "map/magetower.jpg"
+    },
+    map_1541: {
+        id: "map_1541",
+        name: "Pilgrimage Trail 49",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 237,
+        floors: 1,
+        map: ""
+    },
+    map_3390: {
+        id: "map_3390",
+        name: "34_1 Grand Fruit Forest",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 235,
+        floors: 1,
+        map: ""
+    },
+    map_3400: {
+        id: "map_3400",
+        name: "34_2 Grand Fruit Forest",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 238,
+        floors: 1,
+        map: ""
+    },
+    map_3360: {
+        id: "map_3360",
+        name: "Coral Plains 32_2",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 213,
+        floors: 1,
+        map: ""
+    },
+    map_981: {
+        id: "map_981",
+        name: "Fedimian",
+        area: "Fedimian Area",
+        type: "City",
+        level: 0,
+        floors: 1,
+        map: "map/fedimian.jpg"
+    },
+    map_1511: {
+        id: "map_1511",
+        name: "Way of Big Starving Demon",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 121,
+        floors: 1,
+        map: "map/starvingpath.jpg"
+    },
+    map_1521: {
+        id: "map_1521",
+        name: "Pilgrim Path",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 124,
+        floors: 1,
+        map: "map/pilgrimpath.jpg"
+    },
+    map_1551: {
+        id: "map_1551",
+        name: "Altary Way",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 127,
+        floors: 1,
+        map: "map/altary.jpg"
+    },
+    map_1561: {
+        id: "map_1561",
+        name: "Forest of Prayer",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 130,
+        floors: 1,
+        map: "map/forestprayer.jpg"
+    },
+    map_1581: {
+        id: "map_1581",
+        name: "The main hall",
+        area: "Romuva Sanctuary",
+        type: "Dungeon",
+        level: 137,
+        floors: 1,
+        map: ""
+    },
+    map_3410: {
+        id: "map_3410",
+        name: "34_3 Grand Fruit Forest",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 242,
+        floors: 1,
+        map: ""
+    },
+    map_3370: {
+        id: "map_3370",
+        name: "32_3 Grand Fruit Forest",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 210,
+        floors: 1,
+        map: ""
+    },
+    map_2491: {
+        id: "map_2491",
+        name: "???? ??",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 251,
+        floors: 1,
+        map: ""
+    },
+    map_2481: {
+        id: "map_2481",
+        name: "???? ??",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 247,
+        floors: 1,
+        map: ""
+    },
+    map_1571: {
+        id: "map_1571",
+        name: "Apsimesti Crossroad",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 133,
+        floors: 1,
+        map: "map/apsimesticrss.jpg"
+    },
+    map_1542: {
+        id: "map_1542",
+        name: "Feretory Hills",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 197,
+        floors: 1,
+        map: ""
+    },
+    map_1543: {
+        id: "map_1543",
+        name: "Sutatis Trade Route",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 200,
+        floors: 1,
+        map: ""
+    },
+    map_3380: {
+        id: "map_3380",
+        name: "32_4 Grand Fruit Forest",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 207,
+        floors: 1,
+        map: ""
+    },
+    map_2412: {
+        id: "map_2412",
+        name: "Underground Passage 4",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 0,
+        floors: 1,
+        map: ""
+    },
+    map_1651: {
+        id: "map_1651",
+        name: "Roxona Market",
+        area: "Kallis Province",
+        type: "Field",
+        level: 187,
+        floors: 1,
+        map: "map/roxanamarket.jpg"
+    },
+    map_1641: {
+        id: "map_1641",
+        name: "Verkti Square",
+        area: "Kallis Province",
+        type: "Field",
+        level: 184,
+        floors: 1,
+        map: "map/vertisquare.jpg"
+    },
+    map_1681: {
+        id: "map_1681",
+        name: "Downtown",
+        area: "Kallis Province",
+        type: "Field",
+        level: 193,
+        floors: 1,
+        map: "map/downtown.jpg"
+    },
+    map_1631: {
+        id: "map_1631",
+        name: "Dingofasil District",
+        area: "Kallis Province",
+        type: "Field",
+        level: 247,
+        floors: 1,
+        map: ""
+    },
+    map_3340: {
+        id: "map_3340",
+        name: "Coastal Fortress",
+        area: "Kallis Province",
+        type: "Field",
+        level: 244,
+        floors: 1,
+        map: ""
+    },
+    map_1544: {
+        id: "map_1544",
+        name: "Mochia Forest",
+        area: "Romuva Sanctuary",
+        type: "Field",
+        level: 203,
+        floors: 1,
+        map: ""
+    },
+    map_3290: {
+        id: "map_3290",
+        name: "Catacombs 25_4",
+        area: "Grand Forest Area",
+        type: "Dungeon",
+        level: 281,
+        floors: 1,
+        map: ""
+    },
+    map_2141: {
+        id: "map_2141",
+        name: "Isolated plateau 28_2",
+        area: "Kallis Province",
+        type: "Field",
+        level: 279,
+        floors: 1,
+        map: ""
+    },
+    map_1661: {
+        id: "map_1661",
+        name: "Ruklys Street",
+        area: "Kallis Province",
+        type: "Field",
+        level: 190,
+        floors: 1,
+        map: "map/ruklysst.jpg"
+    },
+    map_1751: {
+        id: "map_1751",
+        name: "Ibre Plateau",
+        area: "Kallis Province",
+        type: "Field",
+        level: 260,
+        floors: 1,
+        map: ""
+    },
+    map_1691: {
+        id: "map_1691",
+        name: "Inner Enceinte District",
+        area: "Kallis Province",
+        type: "Field",
+        level: 196,
+        floors: 1,
+        map: "map/innerdistrict.jpg"
+    },
+    map_1701: {
+        id: "map_1701",
+        name: "Sentry Bailey",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 200,
+        floors: 1,
+        map: ""
+    },
+    map_3310: {
+        id: "map_3310",
+        name: "Fort of the Land 30_1",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 251,
+        floors: 1,
+        map: ""
+    },
+    map_3320: {
+        id: "map_3320",
+        name: "Fort of the Land 30_2",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 255,
+        floors: 1,
+        map: ""
+    },
+    map_3240: {
+        id: "map_3240",
+        name: "Maple Forest 24_2",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 309,
+        floors: 1,
+        map: ""
+    },
+    map_3230: {
+        id: "map_3230",
+        name: "Maple Forest 24_1",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 306,
+        floors: 1,
+        map: ""
+    },
+    map_3250: {
+        id: "map_3250",
+        name: "Maple Forest 24_3",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 303,
+        floors: 1,
+        map: ""
+    },
+    map_3280: {
+        id: "map_3280",
+        name: "Maple Forest 25_3",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 285,
+        floors: 1,
+        map: ""
+    },
+    map_1761: {
+        id: "map_1761",
+        name: "Grand Yard Mesa",
+        area: "Kallis Province",
+        type: "Field",
+        level: 264,
+        floors: 1,
+        map: ""
+    },
+    map_1771: {
+        id: "map_1771",
+        name: "Sventimas Exile",
+        area: "Kallis Province",
+        type: "Field",
+        level: 268,
+        floors: 1,
+        map: ""
+    },
+    map_3760: {
+        id: "map_3760",
+        name: "Isolated Plateau",
+        area: "Kallis Province",
+        type: "Field",
+        level: 279,
+        floors: 1,
+        map: ""
+    },
+    map_3330: {
+        id: "map_3330",
+        name: "Fort of the Land 30_3",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 259,
+        floors: 1,
+        map: ""
+    },
+    map_3160: {
+        id: "map_3160",
+        name: "Monastery 22_5",
+        area: "Grand Forest Area",
+        type: "Dungeon",
+        level: 331,
+        floors: 1,
+        map: ""
+    },
+    map_3300: {
+        id: "map_3300",
+        name: "White Tree 56_1",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 316,
+        floors: 1,
+        map: ""
+    },
+    map_2121: {
+        id: "map_2121",
+        name: "White tree 23_3",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 312,
+        floors: 1,
+        map: ""
+    },
+    map_2111: {
+        id: "map_2111",
+        name: "Maple forest 23_2",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 308,
+        floors: 1,
+        map: ""
+    },
+    map_3270: {
+        id: "map_3270",
+        name: "Maple Forest 25_2",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 288,
+        floors: 1,
+        map: ""
+    },
+    map_2131: {
+        id: "map_2131",
+        name: "Isolated plateau 28_1",
+        area: "Kallis Province",
+        type: "Field",
+        level: 276,
+        floors: 1,
+        map: ""
+    },
+    map_1781: {
+        id: "map_1781",
+        name: "Kadume Cliff",
+        area: "Kallis Province",
+        type: "Field",
+        level: 272,
+        floors: 1,
+        map: ""
+    },
+    map_1791: {
+        id: "map_1791",
+        name: "Steel Heights",
+        area: "Kallis Province",
+        type: "Field",
+        level: 275,
+        floors: 1,
+        map: ""
+    },
+    map_1831: {
+        id: "map_1831",
+        name: "Kalejimas Visiting Room",
+        area: "Kallis Province",
+        type: "Dungeon",
+        level: 283,
+        floors: 1,
+        map: ""
+    },
+    map_3150: {
+        id: "map_3150",
+        name: "Monastery 22_4",
+        area: "Grand Forest Area",
+        type: "Dungeon",
+        level: 328,
+        floors: 1,
+        map: ""
+    },
+    map_3140: {
+        id: "map_3140",
+        name: "White tree 22_3",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 325,
+        floors: 1,
+        map: ""
+    },
+    map_3130: {
+        id: "map_3130",
+        name: "White tree 22_2",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 322,
+        floors: 1,
+        map: ""
+    },
+    map_2101: {
+        id: "map_2101",
+        name: "White tree 23_1",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 305,
+        floors: 1,
+        map: ""
+    },
+    map_3260: {
+        id: "map_3260",
+        name: "Maple Forest 25_1",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 291,
+        floors: 1,
+        map: ""
+    },
+    map_3780: {
+        id: "map_3780",
+        name: "3cm lake 26_2",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 395,
+        floors: 1,
+        map: ""
+    },
+    map_1881: {
+        id: "map_1881",
+        name: "3Cm lake 83",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 383,
+        floors: 1,
+        map: ""
+    },
+    map_1891: {
+        id: "map_1891",
+        name: "3Cm lake 84",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 386,
+        floors: 1,
+        map: ""
+    },
+    map_3120: {
+        id: "map_3120",
+        name: "White tree 22_1",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 318,
+        floors: 1,
+        map: ""
+    },
+    map_3110: {
+        id: "map_3110",
+        name: "White tree 21_2",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 309,
+        floors: 1,
+        map: ""
+    },
+    map_1191: {
+        id: "map_1191",
+        name: "Kule Peak",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 300,
+        floors: 1,
+        map: ""
+    },
+    map_3770: {
+        id: "map_3770",
+        name: "3cm lake 26_1",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 399,
+        floors: 1,
+        map: ""
+    },
+    map_1911: {
+        id: "map_1911",
+        name: "3Cm lake 86",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 394,
+        floors: 1,
+        map: ""
+    },
+    map_1901: {
+        id: "map_1901",
+        name: "3Cm lake 85",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 390,
+        floors: 1,
+        map: ""
+    },
+    map_3170: {
+        id: "map_3170",
+        name: "Fantasy Library 48_1",
+        area: "Grand Forest Area",
+        type: "Dungeon",
+        level: 317,
+        floors: 1,
+        map: ""
+    },
+    map_3100: {
+        id: "map_3100",
+        name: "White tree 21_1",
+        area: "Grand Forest Area",
+        type: "Field",
+        level: 312,
+        floors: 1,
+        map: ""
+    },
+    map_3060: {
+        id: "map_3060",
+        name: "Castle Field 20_3",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 448,
+        floors: 1,
+        map: ""
+    },
+    map_3040: {
+        id: "map_3040",
+        name: "Castle Field 20_1",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 442,
+        floors: 1,
+        map: ""
+    },
+    map_1981: {
+        id: "map_1981",
+        name: "Castle 93",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 408,
+        floors: 1,
+        map: ""
+    },
+    map_1921: {
+        id: "map_1921",
+        name: "3Cm lake 87",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 398,
+        floors: 1,
+        map: ""
+    },
+    map_3221: {
+        id: "map_3221",
+        name: "3cm lake 27_2",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 437,
+        floors: 1,
+        map: ""
+    },
+    map_3223: {
+        id: "map_3223",
+        name: "3cm lake 27_3",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 441,
+        floors: 1,
+        map: ""
+    },
+    map_3070: {
+        id: "map_3070",
+        name: "Castle Field 20_4",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 451,
+        floors: 1,
+        map: ""
+    },
+    map_3050: {
+        id: "map_3050",
+        name: "Castle Field 20_2",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 445,
+        floors: 1,
+        map: ""
+    },
+    map_1982: {
+        id: "map_1982",
+        name: "Castle 94",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 411,
+        floors: 1,
+        map: ""
+    },
+    map_1983: {
+        id: "map_1983",
+        name: "Castle 95",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 414,
+        floors: 1,
+        map: ""
+    },
+    map_1931: {
+        id: "map_1931",
+        name: "Star Tower 88",
+        area: "Starlit Lake Area",
+        type: "Dungeon",
+        level: 403,
+        floors: 1,
+        map: ""
+    },
+    map_3220: {
+        id: "map_3220",
+        name: "3cm lake 27_1",
+        area: "Starlit Lake Area",
+        type: "Field",
+        level: 434,
+        floors: 1,
+        map: ""
+    },
+    map_3030: {
+        id: "map_3030",
+        name: "Castle Dungeon 19_2",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 432,
+        floors: 1,
+        map: ""
+    },
+    map_3790: {
+        id: "map_3790",
+        name: "Closed Town 53_1",
+        area: "Royal Territory",
+        type: "Field",
+        level: 459,
+        floors: 1,
+        map: ""
+    },
+    map_3080: {
+        id: "map_3080",
+        name: "Closed Town 20_5",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 454,
+        floors: 1,
+        map: ""
+    },
+    map_3090: {
+        id: "map_3090",
+        name: "Closed Town 20_6",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 457,
+        floors: 1,
+        map: ""
+    },
+    map_1984: {
+        id: "map_1984",
+        name: "Castle 96",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 417,
+        floors: 1,
+        map: ""
+    },
+    map_1986: {
+        id: "map_1986",
+        name: "Castle 97",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 420,
+        floors: 1,
+        map: ""
+    },
+    map_1991: {
+        id: "map_1991",
+        name: "Closed Town 103",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 454,
+        floors: 1,
+        map: ""
+    },
+    map_1006: {
+        id: "map_1006",
+        name: "Orsha",
+        area: "Royal Territory",
+        type: "City",
+        level: 0,
+        floors: 1,
+        map: ""
+    },
+    map_1985: {
+        id: "map_1985",
+        name: "Castle 98",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 420,
+        floors: 1,
+        map: ""
+    },
+    map_1988: {
+        id: "map_1988",
+        name: "Castle 101",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 424,
+        floors: 1,
+        map: ""
+    },
+    map_3020: {
+        id: "map_3020",
+        name: "Castle Dungeon 19_1",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 429,
+        floors: 1,
+        map: ""
+    },
+    map_1995: {
+        id: "map_1995",
+        name: "Closed Town 107",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 467,
+        floors: 1,
+        map: ""
+    },
+    map_1993: {
+        id: "map_1993",
+        name: "Closed Town 105",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 463,
+        floors: 1,
+        map: ""
+    },
+    map_1992: {
+        id: "map_1992",
+        name: "Closed Town 104",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 457,
+        floors: 1,
+        map: ""
+    },
+    map_1987: {
+        id: "map_1987",
+        name: "Castle 99",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 427,
+        floors: 1,
+        map: ""
+    },
+    map_1989: {
+        id: "map_1989",
+        name: "Castle 100",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 431,
+        floors: 1,
+        map: ""
+    },
+    map_1990: {
+        id: "map_1990",
+        name: "Castle 102",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 435,
+        floors: 1,
+        map: ""
+    },
+    map_2000: {
+        id: "map_2000",
+        name: "Closed Dungeon 108",
+        area: "Kingdom Territory",
+        type: "Dungeon",
+        level: 472,
+        floors: 1,
+        map: ""
+    },
+    map_1994: {
+        id: "map_1994",
+        name: "Closed Town 106",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 460,
+        floors: 1,
+        map: ""
+    },
+    map_3000: {
+        id: "map_3000",
+        name: "Closed Town 18_1",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 467,
+        floors: 1,
+        map: ""
+    },
+    map_3010: {
+        id: "map_3010",
+        name: "Closed Town 18_2",
+        area: "Kingdom Territory",
+        type: "Field",
+        level: 470,
+        floors: 1,
+        map: ""
+    }
+};

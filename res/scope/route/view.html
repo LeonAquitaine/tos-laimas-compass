@@ -29,7 +29,7 @@
       <div class="panel panel-default leather travel-log map">
         <div class="panel-body">
           <div class="content-wrapper">
-            <div class="selectable" ng-repeat="i in route">
+            <div class="selectable" ng-repeat="i in route"  ng-class='{"active": data.event.Map === i, "completed": v.Completed}'>
               <div class='col-xs-12 item white'><span class='faded'>{{data.maps[i].QuestLevel}}</span> · {{data.maps[i].Name ? data.maps[i].Name : data.maps[i].ClassName
                 }}
                 <div class='float-right'>

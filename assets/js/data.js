@@ -145,23 +145,23 @@ if (processRaws) {
         var ret = {};
 
         ii.forEach(function (i) {
-            
-            if (i.WarpCost != "500")
-            if (i.PhysicalLinkZone) {
-                ret[i.ClassID] = {
-                    ClassID: i.ClassID,
-                    QuestLevel: i.QuestLevel,
-                    MapType: i.MapType,
-                    WarpCost: i.WarpCost,
-                    ClassName: i.ClassName,
-                    EngName: i.EngName,
-                    PhysicalLinkZone: i.PhysicalLinkZone,
-                    isVillage: i.isVillage,
-                    MapRank: i.MapRank
-                };
 
-                global.app.data["mapsByClassName"][i.ClassName] = i.ClassID;
-            }
+            if (i.WarpCost != "500")  //Filter out instances
+                if (i.PhysicalLinkZone) { //Only show maps that are linked to another
+                    ret[i.ClassID] = {
+                        ClassID: i.ClassID,
+                        QuestLevel: i.QuestLevel,
+                        MapType: i.MapType,
+                        WarpCost: i.WarpCost,
+                        ClassName: i.ClassName,
+                        EngName: i.EngName,
+                        PhysicalLinkZone: i.PhysicalLinkZone,
+                        isVillage: i.isVillage,
+                        MapRank: i.MapRank
+                    };
+
+                    global.app.data["mapsByClassName"][i.ClassName] = i.ClassID;
+                }
 
         });
 
@@ -173,6 +173,10 @@ if (processRaws) {
         var ret = {};
 
         ii.forEach(function (i) {
+
+            if (i.Icon.indexOf('mon_') != 0)
+                i.Icon = "mon_" + i.Icon;
+
             ret[i.ClassID] = {
                 ClassID: i.ClassID,
                 Level: i.Level,
