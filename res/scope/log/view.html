@@ -46,7 +46,7 @@
         <div class="panel-body">
 
           <div class="content-wrapper">
-            <div class="selectable" ng-repeat="(k,v) in data.orderedMaps" ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassID].mobs.length || showAll">
+            <div class="selectable" ng-repeat="(k,v) in data.orderedMaps" ng-if="(data.maps[v.ClassID].canPath) && (data.trackedCharacters[data.selectedCharacter].map[v.ClassID].mobs.length || showAll)">
 
 
               <div class='col-xs-12 item white'>

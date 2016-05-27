@@ -41,8 +41,10 @@ function MOD_LAIMAS_COMPASS_MON_DEAD_CLIENT(actor)
 		local mapId = mapCls.ClassID;
 
 		local modHeader = GETMYPCNAME() .. "|" .. GETMYFAMILYNAME() .. "|" ..GETMYPCLEVEL();
+
+		local mx, my = GET_C_XY(myposition);
 		
-		MOD_DUMP_DATALINE("KILL|" .. modHeader .. "|" .. mapId .. "|" .. monID .. "|" .. killCount .. "|" .. killsRequired);
+		MOD_DUMP_DATALINE("KILL|" .. modHeader .. "|" .. mapId .. "|" .. monID .. "|" .. killCount .. "|" .. killsRequired .. "|" .. mx .. "|" .. my);
 	end
 end
 

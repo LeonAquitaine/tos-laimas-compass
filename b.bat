@@ -6,6 +6,7 @@ DEL ".\tos-laimas-compass-win32-x64\resources\app\*.bat" /f
 
 DEL ".\tos-laimas-compass-win32-x64\resources\app\assets\data\tracker.json" /f
 DEL ".\tos-laimas-compass-win32-x64\resources\app\assets\data\settings.json" /f
+DEL ".\tos-laimas-compass-win32-x64\resources\app\assets\data\killLog\*.jsoncol" /f
 
 DEL ".\tos-laimas-compass-win32-x64\resources\app\*.less" /f /s
 DEL ".\tos-laimas-compass-win32-x64\resources\app\.npmignore" /f /s

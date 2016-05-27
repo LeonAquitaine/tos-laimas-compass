@@ -4,7 +4,8 @@
 global.app = {
   constants: require('./assets/js/constants.js'),
   data: {
-    settings: {}
+    settings: {},
+    killLog: {}
   },
   maps: {},
   modules:{},

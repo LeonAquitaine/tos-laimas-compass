@@ -15,8 +15,8 @@
         </div>
 
         <div class="panel-body">
-          <div class="mini-card" ng-repeat='(k,v) in data.event.Data' ng-class='{"active": data.event.EventSource === k, "completed": v.Completed}'}'>
-            <div class="icon" back-img="/res/img/{{k !== 'Exploration' ? 'mon/mon_' + data.mobs[k].Icon: 'SiaulMapIncomplete'}}.png"></div>
+          <div class="mini-card" ng-repeat='(k,v) in data.event.Data' ng-class='{"active": data.event.EventSource === k, "completed": v.Completed}'>
+            <div class="icon" back-img="/res/img/{{k !== 'Exploration' ? 'mon/' + data.mobs[k].Icon: 'SiaulMapIncomplete'}}.png"></div>
             <div class='name'>{{data.mobs[k] ? data.mobs[k].Name : 'Exploration'}}</div>
             <div class='bubble' ng-if='data.mobs[k]'>{{data.mobs[k].Level}}</div>
 
@@ -46,7 +46,7 @@
         <div class="panel-body">
 
           <div class="content-wrapper">
-            <div class="selectable" ng-repeat="(k,v) in data.orderedMaps" ng-if="data.trackedCharacters[data.selectedCharacter].map[v.ClassID].mobs.length || showAll">
+            <div class="selectable" ng-repeat="(k,v) in data.orderedMaps" ng-if="(data.maps[v.ClassID].canPath) && (data.trackedCharacters[data.selectedCharacter].map[v.ClassID].mobs.length || showAll)">
 
 
               <div class='col-xs-12 item white'>

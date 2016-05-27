@@ -11,6 +11,17 @@ var xmlParse = require('xml2js').parseString;
 
 var rawCols = {};
 
+// Basic preparations
+
+
+console.log('Checking ' + app.constants.killLogDirectory);
+
+if (!fs.existsSync(app.constants.killLogDirectory)) // Creates the kill log dir if it doesn't exist
+{
+    console.log('creating ' + app.constants.killLogDirectory);
+    fs.mkdirSync(app.constants.killLogDirectory);
+}
+
 function loadRawCsv(file, options, postParser) {
 
     var _path = path.join(app.constants.rawSources, file);
@@ -30,8 +41,6 @@ function loadRawCsv(file, options, postParser) {
     fs.writeFileSync(_path + ".json", JSON.stringify(recs), 'utf-8');
 
     console.log("OK    " + _path);
-    console.log("SAMPL " + JSON.stringify(recs[0]));
-    console.log("REC C " + recs.length);
 }
 
 
@@ -137,27 +146,68 @@ function loadTracker() {
     load(app.constants.trackerRepository, null, 'tracker');
 }
 
+
+function getTimeStamp() {
+    var now = new Date();
+    return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+        + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+            .getSeconds()) : (now.getSeconds())));
+}
+
+function saveMobKillData(cid, char, mid, x, y) {
+
+    var _path = path.join(app.constants.killLogDirectory, "\\" + cid + ".jsoncol");
+
+    var sepMark = ",";
+
+    if (!global.app.data.killLog[cid]) {
+
+        if (!fs.existsSync(_path)) // Creates the kill log entry
+        {
+            fs.writeFileSync(_path, "", 'utf-8');
+            sepMark = "";
+        }
+
+        global.app.data.killLog[cid] = [];
+        global.app.data.killLog[cid] = JSON.parse("[" + fs.readFileSync(_path) + "]");
+    }
+
+    var newEntry = { c: char, x, y, m: mid, t: getTimeStamp() };
+
+    global.app.data.killLog[cid].push(newEntry);
+
+    fs.appendFile(_path, sepMark + JSON.stringify(newEntry));
+}
+
 if (processRaws) {
     global.app.data["mapsByClassName"] = {};
+
+    // Basic sources 
+    loadRawCsv("camp_warp.ies");
+    global.app.data["mappos"] = JSON.parse(fs.readFileSync(path.join(app.constants.rawSources, "mappos.json")));
 
     loadRawCsv("map.ies", null, function (ii) {
 
         var ret = {};
 
         ii.forEach(function (i) {
-            
-            if (i.WarpCost != "500")
-            if (i.PhysicalLinkZone) {
+
+            if (i.PhysicalLinkZone) { //Only show maps that are linked to another
                 ret[i.ClassID] = {
                     ClassID: i.ClassID,
                     QuestLevel: i.QuestLevel,
                     MapType: i.MapType,
                     WarpCost: i.WarpCost,
+                    DefGenX: i.DefGenX,
+                    DefGenZ: i.DefGenZ,
+                    Width: i.Width,
+                    Height: i.Height,
                     ClassName: i.ClassName,
                     EngName: i.EngName,
                     PhysicalLinkZone: i.PhysicalLinkZone,
                     isVillage: i.isVillage,
-                    MapRank: i.MapRank
+                    MapRank: i.MapRank,
+                    canPath: i.WarpCost != "500"
                 };
 
                 global.app.data["mapsByClassName"][i.ClassName] = i.ClassID;
@@ -173,6 +223,10 @@ if (processRaws) {
         var ret = {};
 
         ii.forEach(function (i) {
+
+            if (i.Icon.indexOf('mon_') != 0)
+                i.Icon = "mon_" + i.Icon;
+
             ret[i.ClassID] = {
                 ClassID: i.ClassID,
                 Level: i.Level,
@@ -184,8 +238,6 @@ if (processRaws) {
 
         return ret;
     });
-
-    loadRawCsv("camp_warp.ies");
 
     loadRawCsv("ETC.tsv",
         { delimiter: '\t', columns: ['id', 'name', 'kr', 'i0', 'i1', 'i2', 'i3', 'i4', 'i5'], relax_column_count: true, relax: true },
@@ -282,17 +334,29 @@ if (processRaws) {
         return ret;
     });
 
-    // Post-Process warpzones:
+    // Post-Process:
+    // --- warpzones
     global.app.data["camp_warp.ies"].forEach(function (i) {
         global.app.data["map.ies"][global.app.data["mapsByClassName"][i.Zone]].HasWarp = true;
+    });
+    // --- Map position
+    global.app.data["mappos"].forEach(function (i) {
+
+        var mapo = global.app.data["map.ies"][i.ClassID];
+
+        if (mapo) {
+            global.app.data["map.ies"][i.ClassID].posX = 70 + i.x * 1.445;
+            global.app.data["map.ies"][i.ClassID].posY = 60 + i.y * 1.445;
+        }
+        else {
+            console.log('WARN map CID not found [' + i.ClassID + ']');
+        }
     });
 
     // Post-process maps:
     for (var ik in global.app.data["map.ies"]) {
 
         var i = global.app.data["map.ies"][ik];
-
-        console.log(i.PhysicalLinkZone);
 
         var ls = [];
 
@@ -302,9 +366,6 @@ if (processRaws) {
             links.forEach(function (ii) {
                 ls.push(global.app.data["mapsByClassName"][ii]);
             });
-
-            console.log(ls.length);
-
         }
 
         i.nodes = ls;
@@ -374,5 +435,6 @@ module.exports = {
     loadSettings,
     saveSettings,
     loadTracker,
-    saveTracker
+    saveTracker,
+    saveMobKillData
 };
