@@ -1223,3 +1223,25 @@ input[type=checkbox]{
     top: 50px;
     bottom: 0;
 }
+
+.ui-select-match .btn-default, input.ui-select-search 
+{
+  color:#eef;
+  background-color: rgba(0,0,0,.5);
+  border-color: transparent; 
+}
+
+.ui-select-choices, .ui-select-choices-row
+{
+  background-color: rgba(0,0,0,.8);
+}
+
+.ui-select-bootstrap .ui-select-choices-row>a:hover
+{
+  color:#cef !important;
+  background-color: rgba(2,3,4,.8) !important;
+}
+
+.ui-select-choices-row-inner{
+  color:white;
+}

@@ -180,9 +180,10 @@ app
                         imageExtent: extent
                     })
                 }),
-                new ol.layer.Vector({ style: function (feature) { return feature.get('style'); }, source: labelCollection, maxResolution: 2 }),
                 new ol.layer.Vector({ style: function (feature) { return feature.get('style'); }, source: routeCollection }),
+                new ol.layer.Vector({ style: function (feature) { return feature.get('style'); }, source: labelCollection, maxResolution: 2 }),
                 new ol.layer.Vector({ style: function (feature) { return feature.get('style'); }, source: iconCollection })
+                
             ],
             target: 'map',
             view: new ol.View({

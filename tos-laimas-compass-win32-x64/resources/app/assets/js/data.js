@@ -369,6 +369,8 @@ if (processRaws) {
         }
 
         i.nodes = ls;
+        
+        if (!i.Name) i.Name = i.ClassName;
     };
 
     // All done - now, save content:

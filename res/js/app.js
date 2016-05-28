@@ -1,4 +1,4 @@
-var app = angular.module('LaimasApp', ['ui.router']);
+var app = angular.module('LaimasApp', ['ui.router','ui.select', 'ngSanitize']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
